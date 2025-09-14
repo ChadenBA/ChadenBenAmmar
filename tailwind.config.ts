@@ -1,21 +1,19 @@
-import type { Config } from 'tailwindcss';
+import type { Config } from "tailwindcss";
 
 const config: Config = {
-    content: ["./src/**/*.{js,ts,jsx,tsx}"],
-    theme: {
+  theme: {
     extend: {
       keyframes: {
-        scroll: {
+        scrollCycle: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },
       },
       animation: {
-        scroll: 'scroll 25s linear infinite',
+        'scroll-cycle': 'scrollCycle 20s linear infinite',
       },
     },
   },
   plugins: [],
 };
-
 export default config;

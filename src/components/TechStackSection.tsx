@@ -39,18 +39,35 @@ const techIcons = [
 
 const TechStackSection: React.FC = () => {
   return (
-    <section className="bg-[#0F172A] py-16 px-6">
-      {/* Tech Icons */}
-      <div className="w-full overflow-hidden py-6 bg-[#0F172A]">
-      <div className="flex animate-scroll gap-4 w-max">
+    <section className="bg-[#0F172A] ">
+<div style={{ overflow: "hidden", width: "100%" }}>
+      <div
+        style={{
+          display: "flex",
+          gap: "1.5rem",
+          width: "max-content",
+          animation: "scroll 20s linear infinite",
+        }}
+      >
         {[...techIcons, ...techIcons].map((tech, index) => (
           <TechIconCard key={index} name={tech.name} icon={tech.icon} />
         ))}
       </div>
+
+      <style>
+        {`
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+        `}
+      </style>
     </div>
 
 
-      {/* Skills */}
+
+
+
       <div className="flex flex-wrap justify-center gap-6">
        
         <SkillCard

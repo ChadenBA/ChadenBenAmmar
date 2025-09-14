@@ -118,7 +118,31 @@ export const projects: Project[] = [
         ],
         github: 'https://github.com/ChadenBA/[REPO_NAME]', // Replace with actual repo if it's on GitHub
         demo: 'https://github.com/ChadenBA/[REPO_NAME]'
+      },
+      {
+        title: "Social Engineering Game",
+        date: "Personal Project: September 2025",
+        tags: [
+          "Cybersecurity",
+          "Gamification",
+          "Phishing",
+          "Awareness",
+          "Web App",
+          "Open Source"
+        ],
+        purpose: "To raise awareness about social engineering attacks by providing an interactive and engaging way for users to learn how to identify phishing emails, fake links, and manipulation tactics.",
+        description: "The Social Engineering Game is a gamified web application designed to simulate real-world phishing and social engineering scenarios. Instead of passively reading about cyber threats, users actively experience them in an interactive environment, learning to recognize and respond to red flags in real time. The project emphasizes that while firewalls and security systems are strong, human awareness is often the weakest link, making education the first line of defense.",
+        features: [
+          "Interactive phishing and social engineering scenarios",
+          "Gamified approach to cybersecurity learning",
+          "Real-time feedback on identifying red flags",
+          "Open-source code for community collaboration",
+          "Deployed with modern development and security tools"
+        ],
+        github: "https://lnkd.in/dqdCiXNh",
+        demo: "https://lnkd.in/dGYz8dUD"
       }
+      
       
       
       

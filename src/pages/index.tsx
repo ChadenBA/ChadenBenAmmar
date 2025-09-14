@@ -3,19 +3,32 @@ import HomeHero from "@/components/HomeHero";
 import AboutMe from "@/sections/aboutme";
 import TechStackSection from "@/components/TechStackSection";
 import FeaturedProjects from "@/components/Projects/Projects";
+import ExperienceSection from "@/components/Experience /ExperienceSection";
+import CertificationSection from "@/components/Certif/CertificationSection";
+import EducationSection from "@/components/Education/EducationSection";
+import TryHackMeSection from "@/components/tryhackme/TryHackMeSection";
+import SkillsSection from "@/components/skills/SkillsSection";
+import GetInTouchSection from "@/components/GetInTouchSection";
+import GamifiedContactForm from "@/components/GamifiedContactForm";
+import TerminalPortfolio from "@/components/TerminalPortfolio";
+import TinyCTFSection from "@/components/TinyCTFSection";
 export default function Home() {
   return (
     <main className="min-h-screen bg-gray-900 text-white">
       <Sidebar />
-      {/* Page content goes here */}
-      <div className="ml-20 p-10">Your page content</div>
       <HomeHero />
-
-
       <AboutMe/>
       <TechStackSection />
       <FeaturedProjects/>
-
+      <ExperienceSection/>
+      <CertificationSection/>
+      <EducationSection/>
+      <TryHackMeSection/>
+      <SkillsSection/>
+      <GetInTouchSection/>
+      <GamifiedContactForm/>
+      <TerminalPortfolio/>
+      <TinyCTFSection/>
     </main>
   );
 }

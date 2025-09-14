@@ -1,16 +1,19 @@
 import React from 'react';
 import { Stepper, Step, StepLabel, Box } from '@mui/material';
 
-const ProjectStepper = () => {
-  const steps = ['1', '2', '3'];
-  const activeStep = 1;
+interface ProjectStepperProps {
+  steps: number;
+  activeStep: number;
+  onStepChange: (step: number) => void;
+}
 
+const ProjectStepper: React.FC<ProjectStepperProps> = ({ steps, activeStep, onStepChange }) => {
   return (
     <Box display="flex" justifyContent="center">
       <Stepper activeStep={activeStep}>
-        {steps.map((label, index) => (
-          <Step key={index}>
-            <StepLabel></StepLabel>
+        {Array.from({ length: steps }).map((_, index) => (
+          <Step key={index} onClick={() => onStepChange(index)}>
+            <StepLabel />
           </Step>
         ))}
       </Stepper>
