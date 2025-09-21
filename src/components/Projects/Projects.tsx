@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Typography, Stack } from '@mui/material';
+import { Box, Typography, Stack, useTheme } from '@mui/material';
 import ProjectCard from './ProjectCard';
 import ProjectStepper from './ProjectStepper';
 import { projects } from '@/data/projects';
@@ -11,12 +11,34 @@ const FeaturedProjects = () => {
     setActiveStep(step);
   };
 
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
+
   return (
-    <Box sx={{ py: 10, px: 3, backgroundColor: '#0c1123' }}>
-      <Typography variant="h4" align="center" fontWeight="bold" color="#8b5cf6" mb={2}>
+    <Box
+      sx={{
+        py: 10,
+        px: 3,
+        backgroundColor: isDark ? '#0c1123' : '#ffffff',
+      }}
+    >
+      <Typography
+        variant="h4"
+        align="center"
+        fontWeight="bold"
+        color={isDark ? '#8b5cf6' : '#5b21b6'}
+        mb={2}
+      >
         Featured Projects
       </Typography>
-      <Typography variant="subtitle1" align="center" color="white" mb={4}>
+      <Typography
+        variant="subtitle1"
+        align="center"
+        sx={{
+          color: isDark ? '#ffffff' : '#000000',
+          mb: 4,
+        }}
+      >
         Showcase of my most impactful and innovative projects
       </Typography>
 

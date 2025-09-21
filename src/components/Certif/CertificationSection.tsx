@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid, useTheme } from "@mui/material";
 import { certifications } from "@/data/CertificationData";
 import CertificationCard from "./CertificationCard";
 import CertificationStepper from "./CertificationStepper";
@@ -8,6 +8,8 @@ const ITEMS_PER_PAGE = 6;
 
 const CertificationSection = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
 
   const pageCount = Math.ceil(certifications.length / ITEMS_PER_PAGE);
   const paginatedCertifications = certifications.slice(
@@ -16,12 +18,18 @@ const CertificationSection = () => {
   );
 
   return (
-    <Box sx={{ py: 10, px: 3, backgroundColor: "#0c1123" }}>
+    <Box
+      sx={{
+        py: 10,
+        px: 3,
+        backgroundColor: isDark ? "#0c1123" : "#f5f5f5",
+      }}
+    >
       <Typography
         variant="h4"
         align="center"
         fontWeight="bold"
-        color="#8b5cf6"
+        color={isDark ? "#8b5cf6" : "#5b21b6"}
         mb={2}
       >
         Certifications
@@ -29,7 +37,7 @@ const CertificationSection = () => {
       <Typography
         variant="subtitle1"
         align="center"
-        color="white"
+        color={isDark ? "white" : "black"}
         mb={4}
       >
         Professional certifications and continuous learning achievements
@@ -42,7 +50,7 @@ const CertificationSection = () => {
         setActiveStep={setActiveStep}
       />
 
-      {/* Grid of 6 certifications */}
+      {/* Grid of certifications */}
       <Grid container spacing={4} justifyContent="center">
         {paginatedCertifications.map((cert, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>

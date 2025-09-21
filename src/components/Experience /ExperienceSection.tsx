@@ -1,11 +1,13 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { experiences } from "@/data/ExperienceData";
 import ExperienceCard from "./ExperienceCard";
 
 const ExperienceSection = () => {
+   const theme = useTheme();
+    const isDark = theme.palette.mode === "dark";
   return (
-    <Box sx={{ py: 10, px: 3, backgroundColor: "#0c1123" }}>
+    <Box sx={{ py: 10, px: 3, backgroundColor: isDark ? "#0c1123" : "#ffffff" }}>
       <Typography
         variant="h4"
         align="center"

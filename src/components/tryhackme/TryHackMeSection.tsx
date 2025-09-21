@@ -1,12 +1,15 @@
 // src/components/TryHackMeSection.tsx
 import React from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid, useTheme } from "@mui/material";
 import { tryHackMeStats } from "@/data/TryHackMeData";
 import TryHackMeCard from "./TryHackMeCard";
 
 const TryHackMeSection: React.FC = () => {
+     const theme = useTheme();
+      const isDark = theme.palette.mode === "dark";
   return (
-    <Box sx={{ py: 10, px: 3, backgroundColor: "#0c1123" }}>
+
+    <Box sx={{ py: 10, px: 3, bbackgroundColor: isDark ? "#0c1123" : "#ffffff"  }}>
       <Typography
         variant="h4"
         align="center"

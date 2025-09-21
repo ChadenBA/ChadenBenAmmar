@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Chip, Stack, Paper } from "@mui/material";
+import { Box, Typography, Chip, Stack, Paper, useTheme } from "@mui/material";
 
 interface ExperienceCardProps {
   role: string;
@@ -18,31 +18,60 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   duration,
   location,
   description,
-  technologies
+  technologies,
 }) => {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
+
   return (
     <Paper
-      elevation={3}
+      elevation={4}
       sx={{
         p: 3,
         mb: 4,
         borderRadius: 3,
-        backgroundColor: "#0c1123",
-        color: "white"
+        maxWidth: 1320, // 🔹 makes the card narrower
+        width: "100%",
+        mx: "auto", // center horizontally if in a flex/grid container
+        backgroundColor: isDark ? "#0c1123" : "#ffffff",
+        color: isDark ? "#ffffff" : "#000000",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+        "&:hover": {
+          transform: "translateY(-6px) scale(1.02)",
+          boxShadow: isDark
+            ? "0 8px 20px rgba(139, 92, 246, 0.4)"
+            : "0 8px 20px rgba(124, 58, 237, 0.3)",
+        },
       }}
     >
       <Typography variant="h6" fontWeight="bold">
         {role}
       </Typography>
-      <Typography color="#8b5cf6" fontWeight="500">
+
+      {/* Company + Type */}
+      <Typography
+        sx={{
+          color: isDark ? "#8b5cf6" : "#7c3aed",
+          fontWeight: 500,
+        }}
+      >
         {company} · {type}
       </Typography>
 
+      {/* Duration + Location */}
       <Stack direction="row" spacing={2} mt={1} mb={2}>
         <Chip label={duration} color="secondary" />
-        <Chip label={location} variant="outlined" sx={{ color: "white", borderColor: "#8b5cf6" }} />
+        <Chip
+          label={location}
+          variant="outlined"
+          sx={{
+            color: isDark ? "#ffffff" : "#000000",
+            borderColor: isDark ? "#8b5cf6" : "#7c3aed",
+          }}
+        />
       </Stack>
 
+      {/* Description */}
       <Box mb={2}>
         {description.map((line, index) => (
           <Typography key={index} variant="body2" sx={{ mb: 1 }}>
@@ -51,9 +80,17 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         ))}
       </Box>
 
+      {/* Technologies */}
       <Stack direction="row" spacing={1} flexWrap="wrap">
         {technologies.map((tech, index) => (
-          <Chip key={index} label={tech} sx={{ backgroundColor: "#1e293b", color: "#8b5cf6" }} />
+          <Chip
+            key={index}
+            label={tech}
+            sx={{
+              backgroundColor: isDark ? "#1e293b" : "#e5e7eb",
+              color: "#8b5cf6",
+            }}
+          />
         ))}
       </Stack>
     </Paper>

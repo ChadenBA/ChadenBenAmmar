@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Stack, Chip, Button, Link } from '@mui/material';
+import { Box, Typography, Stack, Button, Link , useTheme} from '@mui/material';
 import { Project } from '@/types/project';
 import ProjectTag from './ProjectTag';
 
@@ -13,15 +13,17 @@ const ProjectCard = ({
   github,
   demo,
 }: Project) => {
+     const theme = useTheme();
+      const isDark = theme.palette.mode === "dark";
   return (
     <Box
       sx={{
-        backgroundColor: '#1c2236',
+        backgroundColor:  isDark ? "#0c1123" : "#ffffff",
         borderRadius: 4,
         padding: 4,
         maxWidth: 900,
         width: '100%',
-        color: 'white',
+        color: isDark ? "#ffffff" : "#000000",
         boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
       }}
     >

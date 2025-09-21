@@ -1,11 +1,14 @@
 import React from "react";
-import { Box, Typography, Stack } from "@mui/material";
+import { Box, Typography, Stack , useTheme } from "@mui/material";
 import { education } from "@/data/EducationData";
 import EducationCard from "./EducationCard";
 
 const EducationSection = () => {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
   return (
-    <Box sx={{ py: 10, px: 3, backgroundColor: "#0c1123" }}>
+     
+    <Box sx={{ py: 10, px: 3, backgroundColor: isDark ? "#0c1123" : "#ffffff" }}>
       <Typography
         variant="h4"
         align="center"

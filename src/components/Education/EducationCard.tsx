@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent, Typography, Chip, Stack } from "@mui/material";
+import { Card, CardContent, Typography, Chip, Stack, useTheme } from "@mui/material";
 
 interface EducationProps {
   institution: string;
@@ -17,11 +17,13 @@ const EducationCard: React.FC<EducationProps & { description?: string }> = ({
     skills,
     description
   }) => {
+    const theme = useTheme();
+    const isDark = theme.palette.mode === "dark";
     return (
       <Card
         sx={{
-          backgroundColor: "#1a1f36",
-          color: "white",
+          backgroundColor:  isDark ? "#0c1123" : "#ffffff",
+          color: isDark ? "#ffffff" : "#000000",
           borderRadius: "16px",
           boxShadow: 4,
           height: "100%",
@@ -52,7 +54,7 @@ const EducationCard: React.FC<EducationProps & { description?: string }> = ({
               <Chip
                 key={index}
                 label={skill}
-                sx={{ backgroundColor: "#2d3748", color: "white" }}
+                sx={{ backgroundColor:  " dark: #2d3748", color: " dark: white" }}
                 size="small"
               />
             ))}

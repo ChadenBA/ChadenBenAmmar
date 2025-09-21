@@ -1,12 +1,11 @@
-// components/TechStackSection.tsx
 import React from "react";
 import TechIconCard from "./TechIconCard";
 import SkillCard from "./SkillCard";
 import { FaShieldAlt, FaCloud, FaCode } from "react-icons/fa";
+import { useTheme } from "@mui/material";
 
-// Sample icons: replace with your own image URLs
 const techIcons = [
-  { name: "nsible", icon: "/icons/Ansible.png" },
+  { name: "Ansible", icon: "/icons/Ansible.png" },
   { name: "Docker", icon: "/icons/docker.png" },
   { name: "Kubernetes", icon: "/icons/Kubernetes.png" },
   { name: "Python", icon: "/icons/python.png" },
@@ -24,7 +23,6 @@ const techIcons = [
   { name: "Trivy", icon: "/icons/Trivy.png" },
   { name: "SonarQube", icon: "/icons/DV-SonarQube.png" },
   { name: "Azure", icon: "/icons/azure.png" },
-  { name: "AWS", icon: "/icons/AWS.png" },
   { name: "Jest", icon: "/icons/jest.png" },
   { name: "Postman", icon: "/icons/postman-icon.svg" },
   { name: "JUnit5", icon: "/icons/JUnit5.png" },
@@ -32,44 +30,40 @@ const techIcons = [
   { name: "React", icon: "/icons/React.png" },
   { name: "Express", icon: "/icons/express.png" },
   { name: "Bootstrap", icon: "/icons/Bootstrap.png" },
-  { name: "AWS", icon: "/icons/AWS.png" },
-
-
 ];
 
 const TechStackSection: React.FC = () => {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
+
   return (
-    <section className="bg-[#0F172A] ">
-<div style={{ overflow: "hidden", width: "100%" }}>
-      <div
-        style={{
-          display: "flex",
-          gap: "1.5rem",
-          width: "max-content",
-          animation: "scroll 20s linear infinite",
-        }}
-      >
-        {[...techIcons, ...techIcons].map((tech, index) => (
-          <TechIconCard key={index} name={tech.name} icon={tech.icon} />
-        ))}
+    <section className={`${isDark ? "bg-gray-900" : "bg-gray-100"} py-12 transition-colors duration-300`}>
+      {/* Scrolling tech icons */}
+      <div style={{ overflow: "hidden", width: "100%" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: "1.5rem",
+            width: "max-content",
+            animation: "scroll 20s linear infinite",
+          }}
+        >
+          {[...techIcons, ...techIcons].map((tech, index) => (
+            <TechIconCard key={index} name={tech.name} icon={tech.icon} />
+          ))}
+        </div>
+        <style>
+          {`
+            @keyframes scroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+          `}
+        </style>
       </div>
 
-      <style>
-        {`
-          @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-        `}
-      </style>
-    </div>
-
-
-
-
-
-      <div className="flex flex-wrap justify-center gap-6">
-       
+      {/* Skill Cards */}
+      <div className="flex flex-wrap justify-center gap-6 mt-12">
         <SkillCard
           icon={<FaShieldAlt />}
           title="Cybersecurity"

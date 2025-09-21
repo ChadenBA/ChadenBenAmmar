@@ -1,6 +1,5 @@
-// src/components/TryHackMeCard.tsx
 import React from "react";
-import { Card, CardContent, Typography, Box, Grid } from "@mui/material";
+import { Card, CardContent, Typography, Box, Grid, useTheme } from "@mui/material";
 
 interface THMStatsProps {
   profileBadge: string;
@@ -23,11 +22,14 @@ const TryHackMeCard: React.FC<THMStatsProps> = ({
   points,
   streak,
 }) => {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
+
   return (
     <Card
       sx={{
-        backgroundColor: "#1a1f36",
-        color: "white",
+        backgroundColor: isDark ? "#0c1123" : "#ffffff",
+        color: isDark ? "#ffffff" : "#000000",
         borderRadius: "16px",
         boxShadow: 6,
         p: 2,
@@ -88,8 +90,6 @@ const TryHackMeCard: React.FC<THMStatsProps> = ({
               {totalPaths}
             </Typography>
           </Grid>
-
-        
 
           <Grid item xs={6}>
             <Typography variant="subtitle2" gutterBottom>

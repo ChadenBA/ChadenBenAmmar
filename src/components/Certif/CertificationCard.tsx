@@ -1,5 +1,5 @@
 import React from "react";
-import { Paper, Typography, Chip, Stack, Button } from "@mui/material";
+import { Paper, Typography, Chip, Stack, Button, useTheme } from "@mui/material";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
 interface CertificationCardProps {
@@ -21,22 +21,26 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
   credentialUrl,
   skills
 }) => {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
+
   return (
     <Paper
       elevation={3}
       sx={{
         p: 3,
         borderRadius: 3,
-        backgroundColor: "#0c1123",
-        color: "white",
+        backgroundColor: isDark ? "#0c1123" : "#ffffff",
+        color: isDark ? "#ffffff" : "#000000",
         maxWidth: 600,
-        mx: "auto"
+        mx: "auto",
+        transition: "all 0.3s ease"
       }}
     >
       <Typography variant="h6" fontWeight="bold" gutterBottom>
         {title}
       </Typography>
-      <Typography color="#8b5cf6" fontWeight="500">
+      <Typography color={isDark ? "#8b5cf6" : "#7c3aed"} fontWeight="500">
         {organization}
       </Typography>
 
@@ -62,7 +66,11 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
               <Chip
                 key={index}
                 label={skill}
-                sx={{ backgroundColor: "#1e293b", color: "#8b5cf6" }}
+                sx={{
+                  backgroundColor: isDark ? "#1e293b" : "#e5e7eb",
+                  color: "#8b5cf6",
+                  transition: "all 0.3s ease"
+                }}
               />
             ))}
           </Stack>
@@ -77,12 +85,13 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
           target="_blank"
           sx={{
             mt: 2,
-            borderColor: "#8b5cf6",
-            color: "#8b5cf6",
+            borderColor: isDark ? "#8b5cf6" : "#7c3aed",
+            color: isDark ? "#8b5cf6" : "#7c3aed",
             "&:hover": {
-              borderColor: "#7c3aed",
-              color: "#7c3aed"
-            }
+              borderColor: isDark ? "#7c3aed" : "#5b21b6",
+              color: isDark ? "#7c3aed" : "#5b21b6"
+            },
+            transition: "all 0.3s ease"
           }}
         >
           View Credential

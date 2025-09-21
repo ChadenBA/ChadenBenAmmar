@@ -58,7 +58,7 @@ const TerminalPortfolio: React.FC = () => {
     },
     "contact-me": {
       action: () => {
-        addHistory("Email: your.email@example.com | Phone: +1234567890");
+        addHistory("Email: chedenbenammar@gmail.com | Phone: +21699590388");
       },
     },
   };
@@ -82,7 +82,6 @@ const TerminalPortfolio: React.FC = () => {
     setInput("");
   };
 
-  // Intro message when terminal opens
   useEffect(() => {
     if (showTerminal) {
       setHistory([]);
