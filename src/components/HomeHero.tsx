@@ -13,18 +13,16 @@ const HomeHero = () => {
 
   return (
     <section className={`flex flex-col-reverse md:flex-row items-center justify-between min-h-screen px-8 py-12 ${bgColor} ${textColor}`}>
-      {/* Left */}
       <div className="flex-1 space-y-4">
         <h1 className="text-4xl font-bold">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Chaden </span> Ben Ammar
         </h1>
         <p className="text-lg leading-relaxed max-w-xl">
-          👋 Hi, I'm Chaden ben Ammar — an Engineering student specializing in Teleinformatics.<br/>
+          👋 Hi, I am Chaden ben Ammar — an Engineering student specializing in Teleinformatics.<br/>
           Passionate about Software Engineering, DevOps, DevSecOps, and Cybersecurity.<br/>
           Always exploring and learning in the world of secure software development.
         </p>
 
-        {/* Social Buttons */}
         <div className="flex space-x-4 mt-4">
           <a href="https://github.com/ChadenBA" target="_blank" rel="noopener noreferrer">
             <FaGithub className="text-2xl hover:text-blue-400 cursor-pointer" />

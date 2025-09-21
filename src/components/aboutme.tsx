@@ -24,7 +24,7 @@ const AboutMe: React.FC = () => {
             isDark ? "text-gray-300" : "text-gray-600"
           }`}
         >
-          Hi! 👋 I'm a passionate developer who loves building modern web apps
+          Hi! 👋 I am a passionate developer who loves building modern web apps
           using technologies like React, TypeScript, and Tailwind CSS.
         </p>
         <p

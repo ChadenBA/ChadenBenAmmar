@@ -21,7 +21,6 @@ const knowledgeBase: Record<string, string> = {
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { useTheme } from "@mui/material";
 
 interface Message {
   sender: "user" | "assistant";
@@ -30,8 +29,7 @@ interface Message {
 }
 
 const AIAssistant: React.FC = () => {
-       const theme = useTheme();
-        const isDark = theme.palette.mode === "dark";
+       
   const [messages, setMessages] = useState<Message[]>([
     { sender: "assistant", text: knowledgeBase.greeting, time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) },
   ]);
@@ -42,11 +40,9 @@ const AIAssistant: React.FC = () => {
 
     const time = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
-    // Add user message
     setMessages((prev) => [...prev, { sender: "user", text, time }]);
     setInput("");
 
-    // Determine assistant response
     const key = text.toLowerCase().trim();
     const reply =
       knowledgeBase[key as keyof typeof knowledgeBase] ||
