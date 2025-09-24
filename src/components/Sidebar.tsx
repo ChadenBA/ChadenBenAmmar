@@ -56,7 +56,7 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`fixed top-1/2 -translate-y-1/2 left-2 z-65 h-[65vh] w-13 rounded-3xl flex flex-col items-center justify-between py-4 px-1 shadow-xl transition-colors duration-300
+      className={`fixed top-1/2 -translate-y-1/2 left-2 z-65 h-[60vh] w-13 rounded-3xl flex flex-col items-center justify-between py-4 px-1 shadow-xl transition-colors duration-300
         ${isDark ? "bg-gray-800" : "bg-gray-100"}`}
     >
       <div className="flex flex-col gap-3">
