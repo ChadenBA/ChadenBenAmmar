@@ -62,11 +62,11 @@ const HomeHero = () => {
       <div className="flex-1 flex justify-center mb-8 md:mb-0">
         <div className={`rounded-full border-4 border-blue-500 p-1 ${isDark ? "" : "bg-gray-200"}`}>
           <Image
-            src="/images/megithub.png"
+            src="/images/Confident_Professional_Portrait-removebg-preview.png"
             alt="Chaden Ben Ammar"
             width={300}
             height={300}
-            className="rounded-full grayscale"
+            className="rounded-full "
           />
         </div>
       </div>

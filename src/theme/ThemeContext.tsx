@@ -1,4 +1,3 @@
-// src/theme/ThemeContext.tsx
 import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
 import { createTheme, ThemeProvider as MUIThemeProvider } from "@mui/material/styles";
 
@@ -12,7 +11,6 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [darkMode, setDarkMode] = useState(true);
 
-  // Toggle <html> class for Tailwind dark mode
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
@@ -23,11 +21,10 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   const toggleDarkMode = () => setDarkMode(prev => !prev);
 
-  // Create MUI theme dynamically based on darkMode
   const muiTheme = createTheme({
     palette: {
       mode: darkMode ? "dark" : "light",
-      primary: { main: "#8b5cf6" }, // adjust as needed
+      primary: { main: "#8b5cf6" }, 
       background: {
         default: darkMode ? "#0c1123" : "#ffffff",
         paper: darkMode ? "#1e293b" : "#ffffff",
