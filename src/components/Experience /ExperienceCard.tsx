@@ -30,7 +30,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         p: 3,
         mb: 4,
         borderRadius: 3,
-        maxWidth: 1320,
+        maxWidth: 1220,
         width: "100%",
         mx: "auto",
         backgroundColor: isDark ? "#1e293b" : "#e5e7eb",
