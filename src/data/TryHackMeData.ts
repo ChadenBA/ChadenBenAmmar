@@ -1,11 +1,11 @@
 export const tryHackMeStats = {
-    profileBadge: "https://tryhackme-badges.s3.amazonaws.com/ShakeItOffSec.png", 
-    totalRooms: 369,
-    globalRank: "0xF [TITAN]",
-    rankPercent: "Top 1% (2092)",
-    totalBadges: 56,
-    totalPaths: 12,
-    points: 61440,
-    streak: 38,
+    profileBadge: "https://tryhackme.com/api/v2/badges/public-profile?userPublicId=5104093", 
+    totalRooms: 377,
+    globalRank: "",
+    rankPercent: "Top 1% (1746) 0xF [TITAN]",
+    totalBadges: 57,
+    totalPaths: 7,
+    points: 1746,
+    streak: 52,
   };
   

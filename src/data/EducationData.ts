@@ -5,7 +5,7 @@ export const education = [
       degree: "National Engineering Degree in Telecommunications and Computer Science",
       period: "2024 – Present",
       location: "Sousse",
-      skills: ["Telecommunications", "Computer Science", "Research", "Team Projects"],
+      skills: ["Telecommunications", "Team Projects", "Networking", "Cloud Computing", "Security"],
       description:
         "Focused on advanced telecommunications systems, computer networks, and collaborative software development projects."
     },
@@ -15,7 +15,7 @@ export const education = [
       degree: "Bachelor's Degree in Software Engineering",
       period: "2020 – 2023",
       location: "Monastir",
-      skills: ["Software Engineering", "Programming", "Database Design", "Algorithms"],
+      skills: ["Software Engineering", "Programming", "Database Design", "Algorithms" , "DevOps"],
       description:
         "Studied software development methodologies, programming languages, and database management with practical projects."
     },

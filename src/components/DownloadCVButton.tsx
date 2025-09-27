@@ -7,7 +7,7 @@ const DownloadCVButton: React.FC = () => {
     <div className="relative inline-block text-left">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:from-blue-600 hover:to-purple-600 transition w-full"
+        className="flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500 text-white  px-4 py-2 rounded-lg shadow-md hover:from-blue-600 hover:to-purple-600 transition w-full"
       >
         Download CV ▾
       </button>
@@ -31,6 +31,15 @@ const DownloadCVButton: React.FC = () => {
             onClick={() => setOpen(false)}
           >
             French
+          </a>
+          <a
+            href="/cv/CV_Chaden_ben_ammar_fr.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block px-4 py-2 text-white hover:bg-blue-600 transition"
+            onClick={() => setOpen(false)}
+          >
+            Cybersecurity cv
           </a>
         </div>
       )}

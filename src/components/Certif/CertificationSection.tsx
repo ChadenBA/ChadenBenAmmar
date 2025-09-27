@@ -22,7 +22,7 @@ const CertificationSection = () => {
       sx={{
         py: 10,
         px: 3,
-        backgroundColor: isDark ? "#0c1123" : "#f5f5f5",
+        backgroundColor: isDark ? "bg-gray-900 " : "white",
       }}
     >
       <Typography

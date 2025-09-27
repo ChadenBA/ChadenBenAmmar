@@ -19,14 +19,17 @@ import FloatingBar from "@/components/FloatingBar";
 import Footer from "@/components/Footer";
 
 const Home: React.FC = () => {
-  
-  const { darkMode, toggleDarkMode } = useTheme();
+  const { darkMode, toggleDarkMode } = useTheme(); 
   const [showTerminal, setShowTerminal] = useState(false);
   const [showAssistant, setShowAssistant] = useState(false);
   const [showCtf, setShowCtf] = useState(false);
 
   return (
-    <main className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen transition-colors duration-500 pl-20 relative">
+    <main
+      className={`${
+        darkMode ? "dark bg-gray-900 text-white" : "bg-white text-black"
+      } min-h-screen transition-colors duration-500 pl-20 relative`}
+    >
       <Sidebar />
       <FloatingBar
         onToggleDarkMode={toggleDarkMode}
@@ -39,12 +42,13 @@ const Home: React.FC = () => {
       <section id="about"><AboutMe /></section>
       <section id="skills"><TechStackSection /></section>
       <section id="projects"><FeaturedProjects /></section>
+      <section id="skills-section"><SkillsSection /></section>
       <section id="experience"><ExperienceSection /></section>
       <section id="certifications"><CertificationSection /></section>
       <section id="education"><EducationSection /></section>
       <section id="tryhackme"><TryHackMeSection /></section>
       <section id="hobbies"><HobbiesSection /></section>
-      <section id="skills-section"><SkillsSection /></section>
+
       <section id="contact"><ContactSection /></section>
 
       {showTerminal && (

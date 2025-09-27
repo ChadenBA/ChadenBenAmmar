@@ -1,75 +1,282 @@
 export type Skill = {
-    name: string;
-    category: string;
-    description: string;
-    level: "Beginner" | "Intermediate" | "Advanced";
-    percentage: number;
-  };
-  
-  export const skillsByDomain: Record<string, Skill[]> = {
-    Security: [
-      {
-        name: "Burp Suite",
-        category: "Web Security",
-        description: "Web application security testing",
-        level: "Advanced",
-        percentage: 85,
-      },
-      {
-        name: "Metasploit",
-        category: "Penetration Testing",
-        description: "Penetration testing framework",
-        level: "Advanced",
-        percentage: 80,
-      },
-      {
-        name: "Wireshark",
-        category: "Network Analysis",
-        description: "Network protocol analyzer",
-        level: "Advanced",
-        percentage: 75,
-      },
-      {
-        name: "OWASP ZAP",
-        category: "Security Scanner",
-        description: "Web application security scanner",
-        level: "Intermediate",
-        percentage: 70,
-      },
-      {
-        name: "Nmap",
-        category: "Network Scanner",
-        description: "Network discovery and security auditing",
-        level: "Advanced",
-        percentage: 85,
-      },
-      {
-        name: "Snyk",
-        category: "Vulnerability Mgmt",
-        description: "Developer security platform",
-        level: "Intermediate",
-        percentage: 65,
-      },
-    ],
-    Programming: [
-      {
-        name: "TypeScript",
-        category: "Frontend",
-        description: "Strongly typed superset of JavaScript",
-        level: "Advanced",
-        percentage: 90,
-      },
-    ],
-    Databases: [
-      {
-        name: "PostgreSQL",
-        category: "SQL",
-        description: "Relational database management system",
-        level: "Intermediate",
-        percentage: 75,
-      },
-    ],
-    Cloud: [],
-    Development: [],
-  };
-  
+  name: string;
+  category: string;
+  description: string;
+  level: "Beginner" | "Intermediate" | "Advanced";
+  percentage: number;
+};
+
+export const skillsByDomain: Record<string, Skill[]> = {
+  Security: [
+    {
+      name: "Burp Suite",
+      category: "Web Security",
+      description: "Web application security testing",
+      level: "Intermediate",
+      percentage: 55,
+    },
+    {
+      name: "Metasploit",
+      category: "Penetration Testing",
+      description: "Penetration testing framework",
+      level: "Intermediate",
+      percentage: 50,
+    },
+    {
+      name: "Wireshark",
+      category: "Network Analysis",
+      description: "Network protocol analyzer",
+      level: "Intermediate",
+      percentage: 70,
+    },
+    {
+      name: "OWASP ZAP",
+      category: "Security Scanner",
+      description: "Web application security scanner",
+      level: "Intermediate",
+      percentage: 75,
+    },
+    {
+      name: "Nmap",
+      category: "Network Scanner",
+      description: "Network discovery and security auditing",
+      level: "Intermediate",
+      percentage: 50,
+    },
+    {
+      name: "Snyk",
+      category: "Vulnerability Management",
+      description: "Developer security platform",
+      level: "Intermediate",
+      percentage: 65,
+    },
+    {
+      name: "Trivy",
+      category: "Container Security",
+      description: "Container vulnerability scanner",
+      level: "Intermediate",
+      percentage: 65,
+    },
+    {
+      name: "SonarQube",
+      category: "Code Quality & Security",
+      description: "Static code analysis for security and quality",
+      level: "Intermediate",
+      percentage: 70,
+    },
+    {
+      name: "Snort",
+      category: "Network IDS",
+      description: "Network intrusion detection system",
+      level: "Intermediate",
+      percentage: 50,
+    },
+    {
+      name: "Linux Security",
+      category: "System Security",
+      description: "Linux administration and security",
+      level: "Intermediate",
+      percentage: 75,
+    },
+  ],
+  Programming: [
+    {
+      name: "Java",
+      category: "Backend",
+      description: "Object-oriented programming language",
+      level: "Intermediate",
+      percentage: 55,
+    },
+    {
+      name: "JavaScript",
+      category: "Frontend & Backend",
+      description: "Web programming language",
+      level: "Intermediate",
+      percentage: 75,
+    },
+    {
+      name: "TypeScript",
+      category: "Frontend",
+      description: "Strongly typed superset of JavaScript",
+      level: "Intermediate",
+      percentage: 75,
+    },
+    {
+      name: "Python",
+      category: "General Purpose",
+      description: "Programming language for scripting, AI, and automation",
+      level: "Intermediate",
+      percentage: 50,
+    },
+  ],
+   Frameworks: [
+    {
+      name: "React",
+      category: "Frontend",
+      description: "Frontend library for building UI",
+      level: "Intermediate",
+      percentage: 75,
+    },
+    {
+      name: "Node.js",
+      category: "Backend",
+      description: "JavaScript runtime for backend development",
+      level: "Intermediate",
+      percentage: 70,
+    },
+    {
+      name: "Express",
+      category: "Backend Framework",
+      description: "Web framework for Node.js",
+      level: "Intermediate",
+      percentage: 70,
+    },
+    {
+      name: "Bootstrap",
+      category: "Frontend Framework",
+      description: "CSS framework for responsive UI",
+      level: "Intermediate",
+      percentage: 75,
+    },
+  ],
+  Databases: [
+    {
+      name: "MySQL",
+      category: "SQL",
+      description: "Relational database management system",
+      level: "Intermediate",
+      percentage: 75,
+    },
+    {
+      name: "MongoDB",
+      category: "NoSQL",
+      description: "Document-oriented database",
+      level: "Intermediate",
+      percentage: 70,
+    },
+    {
+      name: "Elasticsearch",
+      category: "Search Engine",
+      description: "Distributed search and analytics engine",
+      level: "Intermediate",
+      percentage: 45,
+    },
+   
+  ],
+  Cloud: [
+    {
+      name: "Docker",
+      category: "Containerization",
+      description: "Container platform for apps",
+      level: "Intermediate",
+      percentage: 75,
+    },
+    {
+      name: "Kubernetes",
+      category: "Container Orchestration",
+      description: "Manage and deploy containerized apps",
+      level: "Intermediate",
+      percentage: 70,
+    },
+    {
+      name: "GitHub Actions",
+      category: "CI/CD",
+      description: "Automate workflows and deployments",
+      level: "Intermediate",
+      percentage: 70,
+    },
+    {
+      name: "Jenkins",
+      category: "CI/CD",
+      description: "Continuous integration server",
+      level: "Intermediate",
+      percentage: 65,
+    },
+    {
+      name: "Ansible",
+      category: "Infrastructure as Code",
+      description: "Automation tool for configuration management",
+      level: "Intermediate",
+      percentage: 65,
+    },
+    {
+      name: "AWS",
+      category: "Cloud Platform",
+      description: "Cloud services and infrastructure",
+      level: "Intermediate",
+      percentage: 70,
+    },
+    {
+      name: "Azure",
+      category: "Cloud Platform",
+      description: "Cloud services and infrastructure",
+      level: "Intermediate",
+      percentage: 70,
+    },
+    {
+      name: "Grafana",
+      category: "Monitoring",
+      description: "Visualization and monitoring tool",
+      level: "Intermediate",
+      percentage: 70,
+    },
+    {
+      name: "Prometheus",
+      category: "Monitoring",
+      description: "Metrics and alerting system",
+      level: "Intermediate",
+      percentage: 65,
+    },
+    {
+      name: "ELK Stack",
+      category: "Monitoring & Logging",
+      description: "Elasticsearch, Logstash, Kibana for logs",
+      level: "Intermediate",
+      percentage: 65,
+    },
+    {
+      name: "Nexus",
+      category: "Artifact Repository",
+      description: "Manage binaries and dependencies",
+      level: "Intermediate",
+      percentage: 60,
+    },
+  ],
+  Development: [
+    {
+      name: "VS Code",
+      category: "Code Editor",
+      description: "Primary code editor",
+      level: "Advanced",
+      percentage: 95,
+    },
+    {
+      name: "Git",
+      category: "Version Control",
+      description: "Version control system",
+      level: "Advanced",
+      percentage: 90,
+    },
+    {
+      name: "GitHub",
+      category: "Git Hosting",
+      description: "Code hosting platform",
+      level: "Advanced",
+      percentage: 85,
+    },
+    {
+      name: "GitLab",
+      category: "DevOps Platform",
+      description: "DevOps platform",
+      level: "Advanced",
+      percentage: 80,
+    },
+    {
+      name: "Postman",
+      category: "API Testing",
+      description: "API development environment",
+      level: "Advanced",
+      percentage: 85,
+    },
+  ],
+};

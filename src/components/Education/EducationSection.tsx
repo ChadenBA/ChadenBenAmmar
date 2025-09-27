@@ -8,7 +8,7 @@ const EducationSection = () => {
   const isDark = theme.palette.mode === "dark";
   return (
      
-    <Box sx={{ py: 10, px: 3, backgroundColor: isDark ? "#0c1123" : "#ffffff" }}>
+    <Box sx={{ py: 10, px: 3, backgroundColor: isDark ? "bg-gray-900" : "#ffffff" }}>
       <Typography
         variant="h4"
         align="center"
@@ -27,7 +27,6 @@ const EducationSection = () => {
         Academic journey and key skills gained
       </Typography>
 
-      {/* Flex row of cards */}
       <Stack
         direction="row"
         spacing={4}

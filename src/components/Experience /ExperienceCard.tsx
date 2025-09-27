@@ -25,16 +25,16 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 
   return (
     <Paper
-      elevation={4}
+      elevation={0}
       sx={{
         p: 3,
         mb: 4,
         borderRadius: 3,
-        maxWidth: 1320, // 🔹 makes the card narrower
+        maxWidth: 1320,
         width: "100%",
-        mx: "auto", // center horizontally if in a flex/grid container
-        backgroundColor: isDark ? "#0c1123" : "#ffffff",
-        color: isDark ? "#ffffff" : "#000000",
+        mx: "auto",
+        backgroundColor: isDark ? "#1e293b" : "#e5e7eb",
+                color: isDark ? "#ffffff" : "#000000",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         "&:hover": {
           transform: "translateY(-6px) scale(1.02)",
@@ -48,7 +48,6 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         {role}
       </Typography>
 
-      {/* Company + Type */}
       <Typography
         sx={{
           color: isDark ? "#8b5cf6" : "#7c3aed",
@@ -58,7 +57,6 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         {company} · {type}
       </Typography>
 
-      {/* Duration + Location */}
       <Stack direction="row" spacing={2} mt={1} mb={2}>
         <Chip label={duration} color="secondary" />
         <Chip
@@ -71,7 +69,6 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         />
       </Stack>
 
-      {/* Description */}
       <Box mb={2}>
         {description.map((line, index) => (
           <Typography key={index} variant="body2" sx={{ mb: 1 }}>
@@ -80,15 +77,15 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         ))}
       </Box>
 
-      {/* Technologies */}
       <Stack direction="row" spacing={1} flexWrap="wrap">
         {technologies.map((tech, index) => (
           <Chip
             key={index}
             label={tech}
             sx={{
-              backgroundColor: isDark ? "#1e293b" : "#e5e7eb",
-              color: "#8b5cf6",
+              backgroundColor: isDark ? "#0c1123" : "#f3f4f6", 
+              color: isDark ? "#d1d5db" : "#111827",          
+              fontWeight: 500,
             }}
           />
         ))}

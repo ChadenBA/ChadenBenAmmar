@@ -17,7 +17,7 @@ const HobbiesSection: React.FC = () => {
   return (
     <section
       className={`py-12 px-6 transition-colors duration-500 ${
-        isDark ? "bg-[#0c1123] text-white" : "bg-white text-black"
+        isDark ? "bg-gray-900  text-white" : "bg-white text-black"
       }`}
     >
       <div className="max-w-4xl mx-auto text-center">

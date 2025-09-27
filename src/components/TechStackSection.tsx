@@ -8,16 +8,19 @@ const techIcons = [
   { name: "Ansible", icon: "/icons/Ansible.png" },
   { name: "Docker", icon: "/icons/docker.png" },
   { name: "Kubernetes", icon: "/icons/Kubernetes.png" },
-  { name: "Python", icon: "/icons/python.png" },
-  { name: "MongoDB", icon: "/icons/mongoDB.png" },
-  { name: "Firebase", icon: "/icons/firebase.png" },
-  { name: "AWS", icon: "/icons/aws.png" },
-  { name: "Git", icon: "/icons/git.png" },
+  { name: "Python", icon: "/icons/Python-logo-notext.svg.png" },
+  { name: "MongoDB", icon: "/icons/mongodb-icon-1-1.svg" },
+  { name: "Firebase", icon: "/icons/firebase_icon-logo_brandlogos.net_tcvck-512x646.png" },
+  { name: "AWS", icon: "/icons/AWS.png" },
+  { name: "Git", icon: "/icons/Git_icon.svg.png" },
   { name: "Jenkins", icon: "/icons/Jenkins.png" },
   { name: "GitHub Actions", icon: "/icons/githubaction.png" },
   { name: "Grafana", icon: "/icons/Grafana.png" },
   { name: "Prometheus", icon: "/icons/Prometheus.png" },
   { name: "Fortinet", icon: "/icons/Fortinet.png" },
+  { name: "Elasticsearch", icon: "/icons/elasticsearch-logo.svg" },
+  { name: "Logstash", icon: "/icons/elastic-logstash.svg" },
+  { name: "kibana", icon: "/icons/free-kibana-logo-icon-svg-download-png-2945035.webp" },
   { name: "Synk", icon: "/icons/snyk.png" },
   { name: "Zap", icon: "/icons/zap.png" },
   { name: "Trivy", icon: "/icons/Trivy.png" },
@@ -30,6 +33,10 @@ const techIcons = [
   { name: "React", icon: "/icons/React.png" },
   { name: "Express", icon: "/icons/express.png" },
   { name: "Bootstrap", icon: "/icons/Bootstrap.png" },
+  { name: "Nmap", icon: "/icons/nmap-logo-256x256.png" },
+  { name: "Wireshark", icon: "/icons/Bokehlicia-Captiva-Wireshark.ico" },
+
+
 ];
 
 const TechStackSection: React.FC = () => {
@@ -37,8 +44,7 @@ const TechStackSection: React.FC = () => {
   const isDark = theme.palette.mode === "dark";
 
   return (
-    <section className={`${isDark ? "bg-gray-900" : "bg-gray-100"} py-12 transition-colors duration-300`}>
-      {/* Scrolling tech icons */}
+    <section className={`${isDark ? "bg-gray-900" : "white"} py-12 transition-colors duration-300`}>
       <div style={{ overflow: "hidden", width: "100%" }}>
         <div
           style={{
@@ -61,25 +67,26 @@ const TechStackSection: React.FC = () => {
           `}
         </style>
       </div>
+<div className="flex flex-wrap justify-center gap-8 mt-12">
+<SkillCard
+    icon={<FaCode className="text-4xl mb-4 mx-auto text-green-500" />}
+    title="Full Stack"
+    description="Building web applications using modern programming languages and frameworks"
+  />
+   <SkillCard
+    icon={<FaCloud className="text-4xl mb-4 mx-auto text-purple-500" />}
+    title="DevSecOps"
+    description="Integrating security in CI/CD pipelines and cloud infrastructure"
+  />
+  <SkillCard
+    icon={<FaShieldAlt className="text-4xl mb-4 mx-auto text-blue-500" />}
+    title="Cybersecurity"
+    description="Working with security frameworks and penetration testing"
+  />
+ 
+  
+</div>
 
-      {/* Skill Cards */}
-      <div className="flex flex-wrap justify-center gap-6 mt-12">
-        <SkillCard
-          icon={<FaShieldAlt />}
-          title="Cybersecurity"
-          description="Certified in multiple security frameworks and penetration testing"
-        />
-        <SkillCard
-          icon={<FaCloud />}
-          title="DevSecOps"
-          description="Implementing security in CI/CD pipelines and cloud infrastructure"
-        />
-        <SkillCard
-          icon={<FaCode />}
-          title="Full Stack"
-          description="Proficient in multiple programming languages and frameworks"
-        />
-      </div>
     </section>
   );
 };

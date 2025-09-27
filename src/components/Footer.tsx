@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 
 const Footer: React.FC = () => {
     return (
-        <footer className="w-full mt-10 border-t border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-[#0a192f] text-gray-700 dark:text-gray-300 py-6">
+        <footer className="w-full mt-10 border-t border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 py-6">
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 space-y-4 md:space-y-0">
 
                 {/* Left side */}

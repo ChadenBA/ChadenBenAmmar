@@ -2,6 +2,29 @@ import { Project } from '@/types/project';
 
 export const projects: Project[] = [
   {
+    title: "Social Engineering Game",
+    date: "Personal Project: September 2025",
+    tags: [
+      "Cybersecurity",
+      "Gamification",
+      "Phishing",
+      "Awareness",
+      "Web App",
+      "Open Source"
+    ],
+    purpose: "To raise awareness about social engineering attacks by providing an interactive and engaging way for users to learn how to identify phishing emails, fake links, and manipulation tactics.",
+    description: "The Social Engineering Game is a gamified web application designed to simulate real-world phishing and social engineering scenarios. Instead of passively reading about cyber threats, users actively experience them in an interactive environment, learning to recognize and respond to red flags in real time. The project emphasizes that while firewalls and security systems are strong, human awareness is often the weakest link, making education the first line of defense.",
+    features: [
+      "Interactive phishing and social engineering scenarios",
+      "Gamified approach to cybersecurity learning",
+      "Real-time feedback on identifying red flags",
+      "Open-source code for community collaboration",
+      "Deployed with modern development and security tools"
+    ],
+    github: "https://github.com/ChadenBA/social-engineering-game",
+    demo: "https://social-engineering-game.onrender.com/"
+  },
+  {
 
         title: 'Inventory Management App',
         date: 'GitHub Repo: April 2025',
@@ -20,7 +43,7 @@ export const projects: Project[] = [
           'Role-based user access and session management',
         ],
         github: 'https://github.com/ChadenBA/InventoryApp',
-        demo: 'https://github.com/ChadenBA/InventoryApp' // You can change this if you deploy it later
+        demo: 'https://github.com/ChadenBA/InventoryApp' 
       }
       ,
       {
@@ -77,8 +100,8 @@ export const projects: Project[] = [
           'Secure coding practices and prevention strategies applied',
           'Automated security checks integrated in development lifecycle (DevSecOps)',
         ],
-        github: 'https://github.com/ChadenBA/[YOUR-REPO-NAME]', // Replace with correct repo if public
-        demo: 'https://github.com/ChadenBA/[YOUR-REPO-NAME]' // or a blog/demo link if available
+        github: 'https://github.com/ChadenBA/Security-attack-simulator', 
+        demo: 'https://github.com/ChadenBA/Security-attack-simulator' 
       },
       {
         title: 'Jenkins Phone Book App CI/CD Pipeline (REPtel)',
@@ -98,7 +121,7 @@ export const projects: Project[] = [
           'Automated Docker image building and Docker Hub push',
           'Triggering of downstream CD pipelines after successful CI',
         ],
-        github: 'https://github.com/ChadenBA/Phone_Book_App_CICD', // Replace with actual repo if needed
+        github: 'https://github.com/ChadenBA/Phone_Book_App_CICD', 
         demo: 'https://github.com/ChadenBA/Phone_Book_App_CICD'
       }, 
       {
@@ -116,32 +139,10 @@ export const projects: Project[] = [
           'GUI interface for manual query input or file-based query loading',
           'Immediate feedback on query validity and error locations',
         ],
-        github: 'https://github.com/ChadenBA/[REPO_NAME]', // Replace with actual repo if it's on GitHub
-        demo: 'https://github.com/ChadenBA/[REPO_NAME]'
+        github: 'https://github.com/ChadenBA/SQLPARSER', 
+        demo: 'https://github.com/ChadenBA/SQLPARSER'
       },
-      {
-        title: "Social Engineering Game",
-        date: "Personal Project: September 2025",
-        tags: [
-          "Cybersecurity",
-          "Gamification",
-          "Phishing",
-          "Awareness",
-          "Web App",
-          "Open Source"
-        ],
-        purpose: "To raise awareness about social engineering attacks by providing an interactive and engaging way for users to learn how to identify phishing emails, fake links, and manipulation tactics.",
-        description: "The Social Engineering Game is a gamified web application designed to simulate real-world phishing and social engineering scenarios. Instead of passively reading about cyber threats, users actively experience them in an interactive environment, learning to recognize and respond to red flags in real time. The project emphasizes that while firewalls and security systems are strong, human awareness is often the weakest link, making education the first line of defense.",
-        features: [
-          "Interactive phishing and social engineering scenarios",
-          "Gamified approach to cybersecurity learning",
-          "Real-time feedback on identifying red flags",
-          "Open-source code for community collaboration",
-          "Deployed with modern development and security tools"
-        ],
-        github: "https://lnkd.in/dqdCiXNh",
-        demo: "https://lnkd.in/dGYz8dUD"
-      }
+     
       
       
       

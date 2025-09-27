@@ -7,7 +7,7 @@ const ExperienceSection = () => {
    const theme = useTheme();
     const isDark = theme.palette.mode === "dark";
   return (
-    <Box sx={{ py: 10, px: 3, backgroundColor: isDark ? "#0c1123" : "#ffffff" }}>
+    <Box sx={{ py: 10, px: 3, backgroundColor: isDark ? "bg-gray-900 " : "#ffffff" }}>
       <Typography
         variant="h4"
         align="center"

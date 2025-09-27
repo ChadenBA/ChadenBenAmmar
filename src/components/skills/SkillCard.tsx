@@ -14,14 +14,15 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
   return (
     <div
       className={`p-4 rounded-2xl shadow-md flex flex-col gap-3 ${
-        isDark ? "bg-[#1e293b] text-white" : "bg-slate-200 text-black"
+        isDark ? "bg-[#1e293b] text-white" : "bg-[#e5e7eb] text-black"
+        
       }`}
     >
       <div className="flex justify-between items-center">
         <h3 className="text-lg font-semibold">{skill.name}</h3>
         <span
           className={`text-xs px-2 py-1 rounded-lg ${
-            isDark ? "bg-green-700 text-white" : "bg-green-400 text-black"
+            isDark ? "bg-[#8b5cf6] text-white" : "bg-[#8b5cf6] text-black"
           }`}
         >
           {skill.category}

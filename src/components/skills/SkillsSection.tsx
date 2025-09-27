@@ -1,24 +1,26 @@
 import React, { useState } from "react";
 import SkillCard from "./SkillCard";
 import { skillsByDomain } from "@/data/skillsData";
-import { useTheme } from "@mui/material";
+import { useTheme, Button, Box } from "@mui/material";
 
 const domains = Object.keys(skillsByDomain);
 
 const SkillsSection: React.FC = () => {
   const [activeDomain, setActiveDomain] = useState("Security");
+  const [showAll, setShowAll] = useState(false);
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
 
+  const skills = skillsByDomain[activeDomain];
+  const displayedSkills = showAll ? skills : skills.slice(0, 6);
+
   return (
     <section
-      className={`py-12 px-6 ${
-        isDark ? "bg-[#0c1123]" : "bg-white"
-      }`}
+      className={`py-12 px-6 ${isDark ? "bg-gray-900 " : "bg-white"}`}
     >
       <h2
         className={`text-3xl font-bold text-center mb-6 ${
-          isDark ? "text-[#8b5cf6]" : "text-blue-600"
+          isDark ? "text-[#8b5cf6]" : "text-[#8b5cf6]"
         }`}
       >
         Skills & Expertise
@@ -31,7 +33,7 @@ const SkillsSection: React.FC = () => {
         A comprehensive overview of my technical skills across different domains
       </p>
 
-      {/* Top Bar Tabs */}
+      {/* Domain buttons */}
       <div className="flex justify-center gap-6 mb-10 flex-wrap">
         {domains.map((domain) => (
           <button
@@ -40,24 +42,40 @@ const SkillsSection: React.FC = () => {
               activeDomain === domain
                 ? isDark
                   ? "bg-[#8b5cf6] text-white"
-                  : "bg-blue-600 text-white"
+                  : "bg-[#8b5cf6] text-gray-800"
                 : isDark
                 ? "bg-[#1e293b] text-gray-300 hover:bg-[#374151]"
-                : "bg-slate-200 text-gray-700 hover:bg-slate-300"
+                : "bg-slate-200 text-gray-800 hover:bg-[#d1d5db]"
             }`}
-            onClick={() => setActiveDomain(domain)}
+            onClick={() => {
+              setActiveDomain(domain);
+              setShowAll(false); // reset to 6 cards when changing domain
+            }}
           >
             {domain}
           </button>
         ))}
       </div>
 
-      {/* Skills Grid */}
+      {/* Skill cards */}
       <div className="grid md:grid-cols-3 gap-6">
-        {skillsByDomain[activeDomain].map((skill) => (
+        {displayedSkills.map((skill) => (
           <SkillCard key={skill.name} skill={skill} />
         ))}
       </div>
+
+      {/* Show More button */}
+      {skills.length > 6 && !showAll && (
+        <Box className="flex justify-center mt-8">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setShowAll(true)}
+          >
+            Show More Skills
+          </Button>
+        </Box>
+      )}
     </section>
   );
 };

@@ -18,7 +18,7 @@ const CircleProgress: React.FC<CircleProgressProps> = ({ value, text }) => {
         text={text || `${value}%`}
         styles={buildStyles({
           textColor: "#fff",
-          pathColor: "#3b82f6", 
+          pathColor: "#8b5cf6", 
           trailColor: "#1f2937", 
         })}
       />

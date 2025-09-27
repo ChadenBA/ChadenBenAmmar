@@ -1,5 +1,17 @@
-import { useTheme } from "@mui/material";
 import React, { useState } from "react";
+import {
+  Box,
+  Typography,
+  TextField,
+  Button,
+  Stack,
+  useTheme,
+  Link,
+} from "@mui/material";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -9,112 +21,239 @@ const ContactSection: React.FC = () => {
     message: "",
   });
   const [isVerified, setIsVerified] = useState(false);
-
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!isVerified) return alert("Complete the slider challenge to send the message!");
+    if (!isVerified) return alert("Complete the slider challenge!");
     console.log(formData);
     alert("Message sent! 🎉 (mock)");
     setFormData({ name: "", email: "", subject: "", message: "" });
     setIsVerified(false);
   };
 
-  const bgColor = isDark ? "bg-gray-900" : "bg-gray-100";
-  const textColor = isDark ? "text-white" : "text-black";
-  const inputBg = isDark ? "bg-white/10 text-white" : "bg-white text-black";
-  const borderColor = isDark ? "border-white/20" : "border-gray-300";
-
   return (
-    <section className={`${bgColor} ${textColor} py-16 px-6 md:px-12`}>
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12">
-        {/* Left: Contact Info */}
-        <div className="flex-1 flex flex-col gap-6">
-          <h2 className="text-4xl font-bold">Get in Touch</h2>
-          <p className={`${isDark ? "text-gray-300" : "text-gray-700"}`}>
-            I’m always open to discuss new projects, ideas, or opportunities. Reach me via email, phone, or follow me on social media.
-          </p>
+    <Box
+      sx={{
+        py: 16,
+        px: { xs: 1, md: 12 },
+        color: isDark ? "#f3f4f6" : "#111827",
+      }}
+    >
+      <Box
+        sx={{
+          maxWidth: 1000,
+          mx: "auto",
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          gap: 8,
+        }}
+      >
+        {/* Contact Info */}
+        <Box sx={{ flex: 1, display: "flex", flexDirection: "column", gap: 4 }}>
+          <Typography variant="h4" fontWeight="bold">
+            Get in Touch
+          </Typography>
+          <Typography color={isDark ? "gray.400" : "gray.700"}>
+            I am always open to discuss new projects, ideas, or opportunities. Reach me via email, phone, or follow me on social media.
+          </Typography>
 
-          {/* Email & Phone */}
-          <div className={`flex flex-col gap-2 ${isDark ? "text-gray-200" : "text-gray-800"}`}>
-            <p>
-              <strong>Email:</strong>{" "}
-              <a href="mailto:your.email@example.com" className="text-blue-500 hover:underline">
-                your.email@example.com
-              </a>
-            </p>
-            <p>
-              <strong>Phone:</strong>{" "}
-              <a href="tel:+1234567890" className="text-blue-500 hover:underline">
-                +1 234 567 890
-              </a>
-            </p>
-          </div>
+          <Stack spacing={2}>
+            <Stack direction="row" spacing={1} alignItems="center">
+              <EmailIcon />
+              <Link
+                href="mailto:chedenbenammar@gmail.com"
+                underline="hover"
+                color="inherit"
+              >
+                chedenbenammar@gmail.com
+              </Link>
+            </Stack>
+            <Stack direction="row" spacing={1} alignItems="center">
+              <PhoneIcon />
+              <Link href="tel:+21699590388" underline="hover" color="inherit">
+                +216 99590388
+              </Link>
+            </Stack>
+          </Stack>
 
-          {/* Follow Me */}
-          <div className="flex gap-4 mt-4">
-            <a href="#" className={`${bgColor} hover:bg-opacity-80 border ${borderColor} rounded-xl p-3 transition-all duration-300`}>LinkedIn</a>
-            <a href="#" className={`${bgColor} hover:bg-opacity-80 border ${borderColor} rounded-xl p-3 transition-all duration-300`}>GitHub</a>
-          </div>
-        </div>
+          <Stack direction="row" spacing={2} mt={2}>
+            <Link
+              href="https://www.linkedin.com/in/chaden-ben-ammar/"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                px: 3,
+                py: 1.5,
+                borderRadius: 2,
+                border: "1px solid",
+                borderColor: isDark ? "#475569" : "#d1d5db",
+                backgroundColor: isDark ? "#1e293b" : "#f9fafb",
+                transition: "all 0.3s",
+                "&:hover": {
+                  backgroundColor: isDark ? "#2c3a50" : "#e5e7eb",
+                },
+              }}
+            >
+              <LinkedInIcon /> LinkedIn
+            </Link>
+            <Link
+              href="https://github.com/ChadenBA"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                px: 3,
+                py: 1.5,
+                borderRadius: 2,
+                border: "1px solid",
+                borderColor: isDark ? "#475569" : "#d1d5db",
+                backgroundColor: isDark ? "#1e293b" : "#f9fafb",
+                transition: "all 0.3s",
+                "&:hover": {
+                  backgroundColor: isDark ? "#2c3a50" : "#e5e7eb",
+                },
+              }}
+            >
+              <GitHubIcon /> GitHub
+            </Link>
+          </Stack>
+        </Box>
 
-        {/* Right: Form */}
-        <div className="flex-1">
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            {["name", "email", "subject"].map((field) => (
-              <input
-                key={field}
-                type={field === "email" ? "email" : "text"}
-                name={field}
-                value={formData[field as keyof typeof formData]}
-                onChange={handleChange}
-                placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
-                className={`w-full p-3 rounded-xl ${inputBg} border ${borderColor} placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300`}
-                required
-              />
-            ))}
-            <textarea
+        {/* Contact Form */}
+        <Box sx={{ flex: 1 }}>
+          <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            <TextField
+              label="Name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              fullWidth
+              required
+              variant="outlined"
+              sx={{
+                backgroundColor: isDark ? "#1E293B" : "#f9fafb",
+                borderRadius: 2,
+              }}
+            />
+            <TextField
+              label="Email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              fullWidth
+              required
+              variant="outlined"
+              sx={{
+                backgroundColor: isDark ? "#1E293B" : "#f9fafb",
+                borderRadius: 2,
+              }}
+            />
+            <TextField
+              label="Subject"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              fullWidth
+              required
+              variant="outlined"
+              sx={{
+                backgroundColor: isDark ? "#1E293B" : "#f9fafb",
+                borderRadius: 2,
+              }}
+            />
+            <TextField
+              label="Message"
               name="message"
               value={formData.message}
               onChange={handleChange}
-              placeholder="Your Message"
-              rows={5}
-              className={`w-full p-3 rounded-xl ${inputBg} border ${borderColor} placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300`}
+              fullWidth
               required
+              multiline
+              rows={5}
+              variant="outlined"
+              sx={{
+                backgroundColor: isDark ? "#1E293B" : "#f9fafb",
+                borderRadius: 2,
+              }}
             />
 
-            {/* Slider */}
-            <div className="mt-4">
-              <label className="block mb-2 text-gray-300">Slide to Verify</label>
-              <div className={`relative w-full h-12 rounded-xl border ${borderColor} ${inputBg}`}>
-                <div
-                  className={`absolute top-0 left-0 h-12 w-12 bg-blue-500 rounded-xl cursor-pointer transition-all duration-200 ${isVerified ? "left-[calc(100%-3rem)]" : "left-0"}`}
+            {/* Slider Verification */}
+            <Box sx={{ mt: 2 }}>
+              <Typography mb={1} color={isDark ? "gray.400" : "gray.700"}>
+                Slide to Verify
+              </Typography>
+              <Box
+                sx={{
+                  position: "relative",
+                  width: "100%",
+                  height: 50,
+                  borderRadius: 2,
+                  border: "1px solid",
+                  borderColor: isDark ? "#475569" : "#d1d5db",
+                  backgroundColor: isDark ? "#1E293B" : "#f9fafb",
+                }}
+              >
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: 0,
+                    left: isVerified ? "calc(100% - 50px)" : 0,
+                    width: 50,
+                    height: 50,
+                    backgroundColor: "#4f46e5",
+                    borderRadius: 2,
+                    cursor: "pointer",
+                    transition: "left 0.2s ease",
+                  }}
                   draggable={!isVerified}
                   onDragEnd={() => setIsVerified(true)}
                 />
-                <span className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none">
+                <Typography
+                  sx={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    pointerEvents: "none",
+                    color: isDark ? "#f3f4f6" : "#111827",
+                    fontWeight: "bold",
+                  }}
+                >
                   {isVerified ? "Verified " : "Drag me"}
-                </span>
-              </div>
-            </div>
+                </Typography>
+              </Box>
+            </Box>
 
-            <button
+            <Button
               type="submit"
               disabled={!isVerified}
-              className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-xl py-3 px-6 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              variant="contained"
+              sx={{
+                mt: 2,
+                backgroundColor: "#4f46e5",
+                "&:hover": { backgroundColor: "#4338ca" },
+              }}
             >
               Send Message
-            </button>
+            </Button>
           </form>
-        </div>
-      </div>
-    </section>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

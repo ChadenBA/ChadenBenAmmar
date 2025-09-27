@@ -26,15 +26,17 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
 
   return (
     <Paper
-      elevation={3}
+      elevation={0}
       sx={{
         p: 3,
         borderRadius: 3,
-        backgroundColor: isDark ? "#0c1123" : "#ffffff",
+        backgroundColor: isDark ? "#1e293b" : "#e5e7eb",
         color: isDark ? "#ffffff" : "#000000",
-        maxWidth: 600,
+        width: 470,        
+        height: 350,      
+        overflowY: "auto", 
         mx: "auto",
-        transition: "all 0.3s ease"
+        transition: "all 0.3s ease",
       }}
     >
       <Typography variant="h6" fontWeight="bold" gutterBottom>
@@ -67,9 +69,9 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
                 key={index}
                 label={skill}
                 sx={{
-                  backgroundColor: isDark ? "#1e293b" : "#e5e7eb",
-                  color: "#8b5cf6",
-                  transition: "all 0.3s ease"
+                  backgroundColor: isDark ? "#0c1123" : "#f3f4f6", 
+                  color: isDark ? "#d1d5db" : "#111827",          
+                  fontWeight: 500,
                 }}
               />
             ))}

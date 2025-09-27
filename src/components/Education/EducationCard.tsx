@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent, Typography, Chip, Stack, useTheme } from "@mui/material";
+import {  CardContent, Typography, Chip, Stack, useTheme, Paper } from "@mui/material";
 
 interface EducationProps {
   institution: string;
@@ -20,13 +20,22 @@ const EducationCard: React.FC<EducationProps & { description?: string }> = ({
     const theme = useTheme();
     const isDark = theme.palette.mode === "dark";
     return (
-      <Card
+      <Paper
+      elevation={0}
+
         sx={{
-          backgroundColor:  isDark ? "#0c1123" : "#ffffff",
-          color: isDark ? "#ffffff" : "#000000",
+          backgroundColor: isDark ? "#1e293b" : "#e5e7eb",
+                color: isDark ? "#ffffff" : "#000000",
           borderRadius: "16px",
           boxShadow: 4,
           height: "100%",
+          transition: "transform 0.3s ease, box-shadow 0.3s ease",
+        "&:hover": {
+          transform: "translateY(-4px) scale(1.02)",
+          boxShadow: isDark
+            ? "0 8px 20px rgba(139, 92, 246, 0.4)"
+            : "0 8px 20px rgba(124, 58, 237, 0.3)",
+        },
         }}
       >
         <CardContent>
@@ -54,13 +63,16 @@ const EducationCard: React.FC<EducationProps & { description?: string }> = ({
               <Chip
                 key={index}
                 label={skill}
-                sx={{ backgroundColor:  " dark: #2d3748", color: " dark: white" }}
-                size="small"
+                sx={{
+                  backgroundColor: isDark ? "#0c1123" : "#f3f4f6", 
+                  color: isDark ? "#d1d5db" : "#111827",          
+                  fontWeight: 500,
+                }}               
               />
             ))}
           </Stack>
         </CardContent>
-      </Card>
+      </Paper>
     );
   };
   

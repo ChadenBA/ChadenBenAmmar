@@ -18,12 +18,12 @@ const ProjectCard = ({
   return (
     <Box
       sx={{
-        backgroundColor:  isDark ? "#0c1123" : "#ffffff",
-        borderRadius: 4,
+        backgroundColor: (theme) =>
+          theme.palette.mode === "dark" ? "#1E293B" : "#e5e7eb",
+        color: (theme) => (theme.palette.mode === "dark" ? "#f3f4f6" : "#111827"),        borderRadius: 4,
         padding: 4,
         maxWidth: 900,
         width: '100%',
-        color: isDark ? "#ffffff" : "#000000",
         boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
       }}
     >
