@@ -26,12 +26,12 @@ const float = keyframes`
 
 
 const statIcons = [
-  <RoomPreferencesIcon sx={{ fontSize: 28, color: "#8b5cf6" }} />,
-  <EmojiEventsIcon sx={{ fontSize: 28, color: "#8b5cf6" }} />,
-  <StarsIcon sx={{ fontSize: 28, color: "#8b5cf6" }} />,
-  <SchoolIcon sx={{ fontSize: 28, color: "#8b5cf6" }} />,
-  <StarIcon sx={{ fontSize: 28, color: "#8b5cf6" }} />,
-  <WhatshotIcon sx={{ fontSize: 28, color: "#8b5cf6" }} />,
+  RoomPreferencesIcon,
+  EmojiEventsIcon,
+  StarsIcon,
+  SchoolIcon,
+  StarIcon,
+  WhatshotIcon,
 ];
 
 const TryHackMeCard: React.FC<THMStatsProps> = ({
@@ -102,55 +102,49 @@ const TryHackMeCard: React.FC<THMStatsProps> = ({
 
 
         <Grid container spacing={3}>
-          {stats.map((stat, index) => (
-            <Grid item xs={12} sm={6} key={index}>
-              <Box
-                sx={{
-                  p: 2.5,
-                  borderRadius: 3,
-                  backgroundColor: isDark ? "#1e293b" : "#f3f4f6",
-                  boxShadow: isDark
-                    ? "0 6px 20px rgba(0,0,0,0.5)"
-                    : "0 6px 20px rgba(0,0,0,0.1)",
-                  textAlign: "center",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: 1.5,
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  "&:hover": {
-                    transform: "translateY(-6px) scale(1.02)",
-                    boxShadow: isDark
-                      ? "0 8px 20px rgba(139, 92, 246, 0.4)"
-                      : "0 8px 20px rgba(124, 58, 237, 0.3)",
-                  },
-                }}
-              >
-                {/* Icon */}
-                {statIcons[index]}
-                {/* Label */}
-                <Typography
-                  variant="subtitle2"
-                  gutterBottom
-                  sx={{ fontWeight: 500 }}
-                >
-                  {stat.label}
-                </Typography>
-                <Typography
-                  variant="h5"
-                  sx={{ color: "#8b5cf6", fontWeight: "bold" }}
-                >
-                  {stat.value}
-                </Typography>
-                {stat.sub && (
-                  <Typography variant="body2" sx={{ mt: 0.5, color: isDark ? "#cbd5e1" : "#475569" }}>
-                    {stat.sub}
-                  </Typography>
-                )}
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
+  {stats.map((stat, index) => {
+    const IconComponent = statIcons[index]; // get the component
+    return (
+      <Grid item xs={12} sm={6} key={index}>
+        <Box
+          sx={{
+            p: 2.5,
+            borderRadius: 3,
+            backgroundColor: isDark ? "#1e293b" : "#f3f4f6",
+            boxShadow: isDark
+              ? "0 6px 20px rgba(0,0,0,0.5)"
+              : "0 6px 20px rgba(0,0,0,0.1)",
+            textAlign: "center",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 1.5,
+            transition: "transform 0.3s ease, box-shadow 0.3s ease",
+            "&:hover": {
+              transform: "translateY(-6px) scale(1.02)",
+              boxShadow: isDark
+                ? "0 8px 20px rgba(139, 92, 246, 0.4)"
+                : "0 8px 20px rgba(124, 58, 237, 0.3)",
+            },
+          }}
+        >
+          <IconComponent sx={{ fontSize: 28, color: "#8b5cf6" }} key={index} />
+          <Typography variant="subtitle2" gutterBottom sx={{ fontWeight: 500 }}>
+            {stat.label}
+          </Typography>
+          <Typography variant="h5" sx={{ color: "#8b5cf6", fontWeight: "bold" }}>
+            {stat.value}
+          </Typography>
+          {stat.sub && (
+            <Typography variant="body2" sx={{ mt: 0.5, color: isDark ? "#cbd5e1" : "#475569" }}>
+              {stat.sub}
+            </Typography>
+          )}
+        </Box>
+      </Grid>
+    );
+  })}
+</Grid>
       </CardContent>
     </Paper>
   );
