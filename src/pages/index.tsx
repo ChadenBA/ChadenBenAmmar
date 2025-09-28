@@ -28,7 +28,7 @@ const Home: React.FC = () => {
     <main
       className={`${
         darkMode ? "dark bg-gray-900 text-white" : "bg-white text-black"
-      } min-h-screen transition-colors duration-500 pl-20 relative`}
+      } min-h-screen transition-colors duration-500 pl-20 relative w-full overflow-x-hidden px-4 sm:px-6 md:px-12 lg:px-20`}
     >
       <Sidebar />
       <FloatingBar

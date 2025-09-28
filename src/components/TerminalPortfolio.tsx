@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
 const TerminalPortfolio: React.FC = () => {
-  const [showTerminal, setShowTerminal] = useState(false);
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<string[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -82,57 +81,45 @@ const TerminalPortfolio: React.FC = () => {
     setInput("");
   };
 
+  // Initialize terminal on mount
   useEffect(() => {
-    if (showTerminal) {
-      setHistory([]);
-      const intro = [
-        "Initializing terminal...",
-        "Welcome, Chaden! 👋",
-        "Role: DevOps & Security Enthusiast",
-        "Motto: “Automate everything, secure everything”",
-        "Type 'help' to see available commands."
-      ];
-      intro.forEach((line, i) => {
-        setTimeout(() => addHistory(line), i * 600);
-      });
+    setHistory([]);
+    const intro = [
+      "Initializing terminal...",
+      "Welcome, Chaden! 👋",
+      "Role: DevOps & Security Enthusiast",
+      "Motto: “Automate everything, secure everything”",
+      "Type 'help' to see available commands."
+    ];
+    intro.forEach((line, i) => {
+      setTimeout(() => addHistory(line), i * 600);
+    });
 
-      setTimeout(() => inputRef.current?.focus(), intro.length * 600);
-    }
-  }, [showTerminal]);
+    setTimeout(() => inputRef.current?.focus(), intro.length * 600);
+  }, []);
 
   return (
     <div className="flex flex-col items-center my-12 px-4">
-      {!showTerminal && (
-        <button
-          onClick={() => setShowTerminal(true)}
-          className="bg-green-500 hover:bg-green-600 text-black font-bold py-3 px-6 rounded-xl shadow-lg transition-all duration-300"
-        >
-          Open Hacker Terminal
-        </button>
-      )}
-
-      {showTerminal && (
-        <div className="bg-black text-green-400 font-mono p-6 rounded-xl shadow-xl w-full max-w-4xl mt-6">
-          <div className="h-96 overflow-y-auto mb-4 space-y-1">
-            {history.map((line, index) => (
-              <p key={index} className="whitespace-pre-wrap break-words">
-                {line}
-              </p>
-            ))}
-          </div>
-
-          <form onSubmit={handleCommand} className="flex items-center border-t border-green-700 pt-2">
-            <span className="mr-2">$</span>
-            <input
-              ref={inputRef}
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              className="bg-black text-green-400 focus:outline-none flex-1"
-              placeholder="Type a command..."
-            />
-          </form>
+      <div className="bg-black text-green-400 font-mono p-6 rounded-xl shadow-xl w-full max-w-4xl mt-6">
+        <div className="h-96 overflow-y-auto mb-4 space-y-1">
+          {history.map((line, index) => (
+            <p key={index} className="whitespace-pre-wrap break-words">
+              {line}
+            </p>
+          ))}
         </div>
-      )}
+
+        <form onSubmit={handleCommand} className="flex items-center border-t border-green-700 pt-2">
+          <span className="mr-2">$</span>
+          <input
+            ref={inputRef}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            className="bg-black text-green-400 focus:outline-none flex-1"
+            placeholder="Type a command..."
+          />
+        </form>
+      </div>
     </div>
   );
 };

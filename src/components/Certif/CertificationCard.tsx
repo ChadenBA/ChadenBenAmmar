@@ -19,7 +19,7 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
   expires,
   credentialId,
   credentialUrl,
-  skills
+  skills,
 }) => {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
@@ -28,21 +28,33 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
     <Paper
       elevation={0}
       sx={{
-        p: 3,
+        p: { xs: 2, sm: 3 }, 
         borderRadius: 3,
         backgroundColor: isDark ? "#1e293b" : "#e5e7eb",
         color: isDark ? "#ffffff" : "#000000",
-        width: 430,        
-        height: 390,      
-        overflowY: "auto", 
+        width: "100%", 
+        height: "100%",
+        overflowY: "auto",
         mx: "auto",
         transition: "all 0.3s ease",
       }}
     >
-      <Typography variant="h6" fontWeight="bold" gutterBottom>
+      <Typography
+        variant="h6"
+        fontWeight="bold"
+        gutterBottom
+        sx={{ fontSize: { xs: "1rem", sm: "1.1rem" } }}
+      >
         {title}
       </Typography>
-      <Typography color={isDark ? "#8b5cf6" : "#7c3aed"} fontWeight="500">
+
+      <Typography
+        sx={{
+          color: isDark ? "#8b5cf6" : "#7c3aed",
+          fontWeight: 500,
+          fontSize: { xs: "0.9rem", sm: "1rem" },
+        }}
+      >
         {organization}
       </Typography>
 
@@ -69,9 +81,10 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
                 key={index}
                 label={skill}
                 sx={{
-                  backgroundColor: isDark ? "#0c1123" : "#f3f4f6", 
-                  color: isDark ? "#d1d5db" : "#111827",          
+                  backgroundColor: isDark ? "#0c1123" : "#f3f4f6",
+                  color: isDark ? "#d1d5db" : "#111827",
                   fontWeight: 500,
+                  fontSize: { xs: "0.75rem", sm: "0.85rem" },
                 }}
               />
             ))}
@@ -91,9 +104,10 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
             color: isDark ? "#8b5cf6" : "#7c3aed",
             "&:hover": {
               borderColor: isDark ? "#7c3aed" : "#5b21b6",
-              color: isDark ? "#7c3aed" : "#5b21b6"
+              color: isDark ? "#7c3aed" : "#5b21b6",
             },
-            transition: "all 0.3s ease"
+            fontSize: { xs: "0.75rem", sm: "0.9rem" },
+            transition: "all 0.3s ease",
           }}
         >
           View Credential

@@ -41,219 +41,240 @@ const ContactSection: React.FC = () => {
 
   return (
     <Box
+    sx={{
+      py: { xs: 8, md: 16 },
+      px: { xs: 2, sm: 4, md: 12 },
+      color: isDark ? "#f3f4f6" : "#111827",
+    }}
+  >
+    <Box
       sx={{
-        py: 16,
-        px: { xs: 1, md: 12 },
-        color: isDark ? "#f3f4f6" : "#111827",
+        maxWidth: 1000,
+        mx: "auto",
+        display: "flex",
+        flexDirection: { xs: "column", md: "row" }, // stack on mobile
+        gap: { xs: 6, md: 8 },
       }}
     >
+      {/* Contact Info */}
       <Box
         sx={{
-          maxWidth: 1000,
-          mx: "auto",
+          flex: 1,
           display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          gap: 8,
+          flexDirection: "column",
+          gap: { xs: 3, md: 4 },
         }}
       >
-        {/* Contact Info */}
-        <Box sx={{ flex: 1, display: "flex", flexDirection: "column", gap: 4 }}>
-          <Typography variant="h4" fontWeight="bold">
-            Get in Touch
-          </Typography>
-          <Typography color={isDark ? "gray.400" : "gray.700"}>
-            I am always open to discuss new projects, ideas, or opportunities. Reach me via email, phone, or follow me on social media.
-          </Typography>
-
-          <Stack spacing={2}>
-            <Stack direction="row" spacing={1} alignItems="center">
-              <EmailIcon />
-              <Link
-                href="mailto:chedenbenammar@gmail.com"
-                underline="hover"
-                color="inherit"
-              >
-                chedenbenammar@gmail.com
-              </Link>
-            </Stack>
-            <Stack direction="row" spacing={1} alignItems="center">
-              <PhoneIcon />
-              <Link href="tel:+21699590388" underline="hover" color="inherit">
-                +216 99590388
-              </Link>
-            </Stack>
-          </Stack>
-
-          <Stack direction="row" spacing={2} mt={2}>
+        <Typography
+          variant="h4"
+          fontWeight="bold"
+          sx={{ fontSize: { xs: "1.8rem", md: "2.2rem" } }}
+        >
+          Get in Touch
+        </Typography>
+        <Typography
+          color={isDark ? "gray.400" : "gray.700"}
+          sx={{ fontSize: { xs: "0.9rem", md: "1rem" } }}
+        >
+          I am always open to discuss new projects, ideas, or opportunities.
+          Reach me via email, phone, or follow me on social media.
+        </Typography>
+  
+        <Stack spacing={2}>
+          <Stack direction="row" spacing={1} alignItems="center">
+            <EmailIcon fontSize="small" />
             <Link
-              href="https://www.linkedin.com/in/chaden-ben-ammar/"
+              href="mailto:chedenbenammar@gmail.com"
+              underline="hover"
+              color="inherit"
+              sx={{ fontSize: { xs: "0.9rem", md: "1rem" } }}
+            >
+              chedenbenammar@gmail.com
+            </Link>
+          </Stack>
+          <Stack direction="row" spacing={1} alignItems="center">
+            <PhoneIcon fontSize="small" />
+            <Link
+              href="tel:+21699590388"
+              underline="hover"
+              color="inherit"
+              sx={{ fontSize: { xs: "0.9rem", md: "1rem" } }}
+            >
+              +216 99590388
+            </Link>
+          </Stack>
+        </Stack>
+  
+        <Stack
+  direction="row"
+  spacing={2}
+  mt={2}
+  flexWrap="wrap"
+>
+{[
+  {
+    href: "https://www.linkedin.com/in/chaden-ben-ammar/",
+    icon: <LinkedInIcon fontSize="small" />,
+    label: "LinkedIn",
+  },
+  {
+    href: "https://github.com/ChadenBA",
+    icon: <GitHubIcon fontSize="small" />,
+    label: "GitHub",
+  },
+].map((btn, index) => (
+  <Link
+    key={index}
+    href={btn.href}
+    target="_blank"
+    rel="noopener"
+    sx={{
+      display: "flex",
+      alignItems: "center",
+      gap: { xs: 0.5, sm: 1 },          // smaller gap on mobile
+      px: { xs: 1.5, sm: 3 },            // horizontal padding
+      py: { xs: 0.5, sm: 1.5 },          // vertical padding
+      borderRadius: 2,
+      border: "1px solid",
+      borderColor: isDark ? "#475569" : "#d1d5db",
+      backgroundColor: isDark ? "#1e293b" : "#f9fafb",
+      transition: "all 0.3s",
+      fontSize: { xs: "0.7rem", sm: "0.95rem" },  // smaller text on mobile
+      "&:hover": {
+        backgroundColor: isDark ? "#2c3a50" : "#e5e7eb",
+      },
+      whiteSpace: "nowrap",              // prevent wrapping
+    }}
+  >
+    {btn.icon}
+    <Typography
+      sx={{
+        display: { xs: "none", sm: "inline" }, // hide label on very small screens
+      }}
+    >
+      {btn.label}
+    </Typography>
+  </Link>
+))}
+
+</Stack>
+
+      </Box>
+  
+      {/* Contact Form */}
+      <Box sx={{ flex: 1, width: "100%" }}>
+        <form
+          onSubmit={handleSubmit}
+          style={{ display: "flex", flexDirection: "column", gap: 16 }}
+        >
+          {["name", "email", "subject"].map((field) => (
+            <TextField
+              key={field}
+              label={field.charAt(0).toUpperCase() + field.slice(1)}
+              name={field}
+              value={formData[field as keyof typeof formData]}
+              onChange={handleChange}
+              fullWidth
+              required
+              variant="outlined"
               sx={{
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-                px: 3,
-                py: 1.5,
+                backgroundColor: isDark ? "#1E293B" : "#f9fafb",
+                borderRadius: 2,
+              }}
+            />
+          ))}
+          <TextField
+            label="Message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            fullWidth
+            required
+            multiline
+            rows={5}
+            variant="outlined"
+            sx={{
+              backgroundColor: isDark ? "#1E293B" : "#f9fafb",
+              borderRadius: 2,
+            }}
+          />
+  
+          {/* Slider Verification */}
+          <Box sx={{ mt: 2 }}>
+            <Typography
+              mb={1}
+              color={isDark ? "gray.400" : "gray.700"}
+              sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+            >
+              Slide to Verify
+            </Typography>
+            <Box
+              sx={{
+                position: "relative",
+                width: "100%",
+                height: { xs: 40, sm: 50 },
                 borderRadius: 2,
                 border: "1px solid",
                 borderColor: isDark ? "#475569" : "#d1d5db",
-                backgroundColor: isDark ? "#1e293b" : "#f9fafb",
-                transition: "all 0.3s",
-                "&:hover": {
-                  backgroundColor: isDark ? "#2c3a50" : "#e5e7eb",
-                },
+                backgroundColor: isDark ? "#1E293B" : "#f9fafb",
               }}
             >
-              <LinkedInIcon /> LinkedIn
-            </Link>
-            <Link
-              href="https://github.com/ChadenBA"
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-                px: 3,
-                py: 1.5,
-                borderRadius: 2,
-                border: "1px solid",
-                borderColor: isDark ? "#475569" : "#d1d5db",
-                backgroundColor: isDark ? "#1e293b" : "#f9fafb",
-                transition: "all 0.3s",
-                "&:hover": {
-                  backgroundColor: isDark ? "#2c3a50" : "#e5e7eb",
-                },
-              }}
-            >
-              <GitHubIcon /> GitHub
-            </Link>
-          </Stack>
-        </Box>
-
-        {/* Contact Form */}
-        <Box sx={{ flex: 1 }}>
-          <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <TextField
-              label="Name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              fullWidth
-              required
-              variant="outlined"
-              sx={{
-                backgroundColor: isDark ? "#1E293B" : "#f9fafb",
-                borderRadius: 2,
-              }}
-            />
-            <TextField
-              label="Email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              fullWidth
-              required
-              variant="outlined"
-              sx={{
-                backgroundColor: isDark ? "#1E293B" : "#f9fafb",
-                borderRadius: 2,
-              }}
-            />
-            <TextField
-              label="Subject"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              fullWidth
-              required
-              variant="outlined"
-              sx={{
-                backgroundColor: isDark ? "#1E293B" : "#f9fafb",
-                borderRadius: 2,
-              }}
-            />
-            <TextField
-              label="Message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              fullWidth
-              required
-              multiline
-              rows={5}
-              variant="outlined"
-              sx={{
-                backgroundColor: isDark ? "#1E293B" : "#f9fafb",
-                borderRadius: 2,
-              }}
-            />
-
-            {/* Slider Verification */}
-            <Box sx={{ mt: 2 }}>
-              <Typography mb={1} color={isDark ? "gray.400" : "gray.700"}>
-                Slide to Verify
-              </Typography>
               <Box
                 sx={{
-                  position: "relative",
-                  width: "100%",
-                  height: 50,
+                  position: "absolute",
+                  top: 0,
+                  left: isVerified ? "calc(100% - 50px)" : 0,
+                  width: 50,
+                  height: "100%",
+                  backgroundColor: "#4f46e5",
                   borderRadius: 2,
-                  border: "1px solid",
-                  borderColor: isDark ? "#475569" : "#d1d5db",
-                  backgroundColor: isDark ? "#1E293B" : "#f9fafb",
+                  cursor: "pointer",
+                  transition: "left 0.2s ease",
+                }}
+                draggable={!isVerified}
+                onDragEnd={() => setIsVerified(true)}
+              />
+              <Typography
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  pointerEvents: "none",
+                  color: isDark ? "#f3f4f6" : "#111827",
+                  fontWeight: "bold",
+                  fontSize: { xs: "0.75rem", md: "0.9rem" },
                 }}
               >
-                <Box
-                  sx={{
-                    position: "absolute",
-                    top: 0,
-                    left: isVerified ? "calc(100% - 50px)" : 0,
-                    width: 50,
-                    height: 50,
-                    backgroundColor: "#4f46e5",
-                    borderRadius: 2,
-                    cursor: "pointer",
-                    transition: "left 0.2s ease",
-                  }}
-                  draggable={!isVerified}
-                  onDragEnd={() => setIsVerified(true)}
-                />
-                <Typography
-                  sx={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    pointerEvents: "none",
-                    color: isDark ? "#f3f4f6" : "#111827",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {isVerified ? "Verified " : "Drag me"}
-                </Typography>
-              </Box>
+                {isVerified ? "Verified" : "Drag me"}
+              </Typography>
             </Box>
-
-            <Button
-              type="submit"
-              disabled={!isVerified}
-              variant="contained"
-              sx={{
-                mt: 2,
-                backgroundColor: "#4f46e5",
-                "&:hover": { backgroundColor: "#4338ca" },
-              }}
-            >
-              Send Message
-            </Button>
-          </form>
-        </Box>
+          </Box>
+  
+          <Button
+            type="submit"
+            disabled={!isVerified}
+            variant="contained"
+            sx={{
+              mt: 2,
+              backgroundColor: "#4f46e5",
+              "&:hover": { backgroundColor: "#4338ca" },
+              width: "100%", // full width on mobile
+              py: { xs: 1.5, md: 2 },
+              fontSize: { xs: "0.85rem", md: "1rem" },
+            }}
+          >
+            Send Message
+          </Button>
+        </form>
       </Box>
     </Box>
+  </Box>
+  
   );
 };
 

@@ -25,7 +25,7 @@ export const certifications = [
     expires: "August 29, 2027",
     credentialId: "697990dc-e3ee-48d2-b4ed-b0f5e8afe2f7",
     credentialUrl: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=9880D66E2DB82568A5CBE0AB0B2B70137A96872ED9C9DD98D6EC1D2867DBE3EB",
-    skills: ["DevOps", "Docker", "CI/CD", "DevSecOps", "Kubernetes"]
+    skills: ["DevSecOps", "Docker", "CI/CD", "Kubernetes"]
   },
   {
     title: "Fortinet Certified Associate in Cybersecurity",

@@ -43,14 +43,12 @@ const CertificationSection = () => {
         Professional certifications and continuous learning achievements
       </Typography>
 
-      {/* Stepper with number of pages */}
       <CertificationStepper
         steps={Array.from({ length: pageCount }, (_, i) => `Page ${i + 1}`)}
         activeStep={activeStep}
         setActiveStep={setActiveStep}
       />
 
-      {/* Grid of certifications */}
       <Grid container spacing={4} justifyContent="center">
         {paginatedCertifications.map((cert, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>

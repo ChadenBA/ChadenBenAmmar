@@ -67,11 +67,6 @@ const TryHackMeCard: React.FC<THMStatsProps> = ({
       }}
     >
       <CardContent>
-
-
-
-
-
         <Box
           sx={{
             display: "flex",
@@ -103,7 +98,7 @@ const TryHackMeCard: React.FC<THMStatsProps> = ({
 
         <Grid container spacing={3}>
   {stats.map((stat, index) => {
-    const IconComponent = statIcons[index]; // get the component
+    const IconComponent = statIcons[index]; 
     return (
       <Grid item xs={12} sm={6} key={index}>
         <Box

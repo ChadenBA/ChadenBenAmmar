@@ -33,7 +33,6 @@ const SkillsSection: React.FC = () => {
         A comprehensive overview of my technical skills across different domains
       </p>
 
-      {/* Domain buttons */}
       <div className="flex justify-center gap-6 mb-10 flex-wrap">
         {domains.map((domain) => (
           <button
@@ -57,14 +56,12 @@ const SkillsSection: React.FC = () => {
         ))}
       </div>
 
-      {/* Skill cards */}
       <div className="grid md:grid-cols-3 gap-6">
         {displayedSkills.map((skill) => (
           <SkillCard key={skill.name} skill={skill} />
         ))}
       </div>
 
-      {/* Show More button */}
       {skills.length > 6 && !showAll && (
         <Box className="flex justify-center mt-8">
           <Button

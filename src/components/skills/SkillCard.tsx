@@ -13,15 +13,15 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
 
   return (
     <div
-      className={`p-4 rounded-2xl shadow-md flex flex-col gap-3 ${
+      className={`p-4 sm:p-5 rounded-2xl shadow-md flex flex-col gap-3 ${
         isDark ? "bg-[#1e293b] text-white" : "bg-[#e5e7eb] text-black"
-        
       }`}
     >
-      <div className="flex justify-between items-center">
-        <h3 className="text-lg font-semibold">{skill.name}</h3>
+      {/* Title + Category */}
+      <div className="flex flex-wrap justify-between items-center gap-2">
+        <h3 className="text-base sm:text-lg font-semibold">{skill.name}</h3>
         <span
-          className={`text-xs px-2 py-1 rounded-lg ${
+          className={`text-xs sm:text-sm px-2 py-1 rounded-lg ${
             isDark ? "bg-[#8b5cf6] text-white" : "bg-[#8b5cf6] text-black"
           }`}
         >
@@ -29,13 +29,21 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
         </span>
       </div>
 
-      <p className={isDark ? "text-gray-300" : "text-gray-700"}>
+      {/* Description */}
+      <p
+        className={`text-sm sm:text-base ${
+          isDark ? "text-gray-300" : "text-gray-700"
+        }`}
+      >
         {skill.description}
       </p>
 
-      <div className="flex justify-between items-center">
-        <span className="text-xs">{skill.level}</span>
-        <CircleProgress value={skill.percentage} />
+      {/* Level + Progress */}
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0">
+        <span className="text-xs sm:text-sm">{skill.level}</span>
+        <div className="w-16 h-16 sm:w-20 sm:h-20">
+          <CircleProgress value={skill.percentage} />
+        </div>
       </div>
     </div>
   );

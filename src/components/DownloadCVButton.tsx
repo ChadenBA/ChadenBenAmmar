@@ -15,7 +15,7 @@ const DownloadCVButton: React.FC = () => {
       {open && (
         <div className="absolute mt-2 w-44 bg-gray-800 border border-gray-700 rounded-lg shadow-lg z-10">
           <a
-            href="/cv/CV_Chaden_ben_ammar_eng.pdf"
+            href="/cv/CV_Chaden_ben_ammar_eng_devops.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="block px-4 py-2 text-white hover:bg-blue-600 transition"
@@ -24,7 +24,7 @@ const DownloadCVButton: React.FC = () => {
             English
           </a>
           <a
-            href="/cv/CV_Chaden_ben_ammar_fr.pdf"
+            href="/cv/CV_Chaden_ben_ammar_fr_devops.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="block px-4 py-2 text-white hover:bg-blue-600 transition"
@@ -33,13 +33,13 @@ const DownloadCVButton: React.FC = () => {
             French
           </a>
           <a
-            href="/cv/CV_Chaden_ben_ammar_fr.pdf"
+            href="/cv/Chaden_Ben_Ammar_CV_sec.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="block px-4 py-2 text-white hover:bg-blue-600 transition"
             onClick={() => setOpen(false)}
           >
-            Cybersecurity cv
+            Cybersecurity CV
           </a>
         </div>
       )}

@@ -1,41 +1,78 @@
 import React from "react";
+import { Box, Typography, Link, useTheme, Stack } from "@mui/material";
 import { FaStar } from "react-icons/fa";
 
 const Footer: React.FC = () => {
-    return (
-        <footer className="w-full mt-10 border-t border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 py-6">
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 space-y-4 md:space-y-0">
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
 
-                {/* Left side */}
-                <div className="flex items-center space-x-2">
-                    <FaStar className="text-yellow-400 animate-pulse" />
-                    <span className="font-semibold">
-                        ⭐ Give this project a star!
-                    </span>
-                </div>
+  return (
+    <Box
+      component="footer"
+      sx={{
+        width: "100%",
+        mt: 10,
+        borderTop: 1,
+        borderColor: isDark ? "grey.800" : "grey.300",
+        backgroundColor: isDark ? "#111827" : "white",
+        color: isDark ? "#d1d5db" : "#4b5563",
+        py: 6,
+      }}
+    >
+      <Box
+        sx={{
+          maxWidth: 1200,
+          mx: "auto",
+          px: { xs: 3, md: 6 },
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: { xs: 2, md: 0 },
+        }}
+      >
+        {/* Star Section */}
+        <Stack direction="row" spacing={1} alignItems="center">
+          <FaStar style={{ color: "#facc15" }} className="animate-pulse" />
+          <Typography fontWeight={600}>⭐ Give this project a star!</Typography>
+        </Stack>
 
-                {/* Center text */}
-                <div className="text-sm text-center">
-                    ▷ Designed & built by{" "}
-                    <a
-                        href="https://github.com/ChadenBA/my-portfolio"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 hover:underline"
-                    >
-                        Chaden ben Ammar
-                    </a>{" "}
-                    © {new Date().getFullYear()}
-                </div>
+        {/* Designed by */}
+        <Typography
+          variant="body2"
+          textAlign="center"
+          sx={{ fontSize: { xs: "0.8rem", md: "1rem" } }}
+        >
+          ▷ Designed & built by{" "}
+          <Link
+            href="https://github.com/ChadenBA/my-portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              fontWeight: "bold",
+              background: "linear-gradient(to right, #3b82f6, #8b5cf6)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              "&:hover": { textDecoration: "underline" },
+            }}
+          >
+            Chaden ben Ammar
+          </Link>{" "}
+          © {new Date().getFullYear()}
+        </Typography>
 
-
-                {/* Right side */}
-                <div className="text-sm italic">
-                    Created with ❤️ & sprinkled with ✨
-                </div>
-            </div>
-        </footer>
-    );
+        {/* Message Section */}
+        <Typography
+          variant="body2"
+          fontStyle="italic"
+          textAlign={{ xs: "center", md: "right" }}
+          sx={{ fontSize: { xs: "0.75rem", md: "0.875rem" } }}
+        >
+          Created with ❤️ & sprinkled with ✨
+        </Typography>
+      </Box>
+    </Box>
+  );
 };
 
 export default Footer;
