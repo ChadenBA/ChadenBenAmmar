@@ -26,7 +26,6 @@ const HomeHero = () => {
     <section
       className={`flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen px-6 md:px-12 py-12 ${bgColor} ${textColor}`}
     >
-      {/* Left Section */}
       <div className="flex-1 space-y-4 text-center lg:text-left">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
           <span className={`text-transparent bg-clip-text ${accentGradient}`}>
@@ -47,16 +46,7 @@ const HomeHero = () => {
             </span>
           </motion.div>
 
-          <motion.p custom={1} variants={textVariants}>
-            👋 Hi, I am{" "}
-            <span
-              className={`font-bold ${accentGradient} text-transparent bg-clip-text`}
-            >
-              Chaden ben Ammar
-            </span>{" "}
-            — an Engineering student specializing in{" "}
-            <span className="font-bold">Teleinformatics</span>.
-          </motion.p>
+         
 
           <motion.p custom={2} variants={textVariants}>
             Passionate about{" "}
@@ -67,12 +57,11 @@ const HomeHero = () => {
           </motion.p>
 
           <motion.p custom={3} variants={textVariants}>
-            🚀 Always exploring and learning in the world of{" "}
+             Always exploring and learning in the world of{" "}
             <span className="font-semibold">secure software development</span>.
           </motion.p>
         </motion.div>
 
-        {/* Social Links */}
         <div className="flex justify-center lg:justify-start space-x-4 mt-4">
           <a
             href="https://github.com/ChadenBA"
@@ -90,7 +79,6 @@ const HomeHero = () => {
           </a>
         </div>
 
-        {/* Buttons */}
         <div className="flex flex-wrap justify-center lg:justify-start gap-4 mt-6 items-center">
           <a
             href="mailto:youremail@example.com"
@@ -111,7 +99,6 @@ const HomeHero = () => {
         </div>
       </div>
 
-      {/* Right Section - Profile Image */}
       <div className="flex-1 flex justify-center mb-8 lg:mb-0">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}

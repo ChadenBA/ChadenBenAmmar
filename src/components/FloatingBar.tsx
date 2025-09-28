@@ -26,7 +26,7 @@ const FloatingBar: React.FC<FloatingBarProps> = ({
         bgColor="bg-gray-400"
         hoverColor="hover:bg-gray-500"
         title="Toggle Dark Mode"
-        size="sm"
+        size="sm" 
       />
       <FloatingButton
         onClick={onOpenTerminal}

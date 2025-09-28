@@ -81,7 +81,6 @@ const TerminalPortfolio: React.FC = () => {
     setInput("");
   };
 
-  // Initialize terminal on mount
   useEffect(() => {
     setHistory([]);
     const intro = [

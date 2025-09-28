@@ -10,8 +10,8 @@ interface FloatingButtonProps {
 }
 
 const sizeMap = {
-  xs: "w-4 h-4 text-xs",
-  sm: "w-8 h-8 text-sm",
+  xs: "w-2 h-2 text-xs",
+  sm: "w-7 h-7 text-sm",
   md: "w-12 h-12 text-base",
 };
 

@@ -45,12 +45,13 @@ const FeaturedProjects = () => {
       >
         Showcase of my projects
       </Typography>
-
-      <ProjectStepper
-        steps={projects.length}
-        activeStep={activeStep}
-        onStepChange={handleStepChange}
-      />
+      <Box sx={{ transform: 'scale(0.9)', transformOrigin: 'center', mb: 2 }}>
+  <ProjectStepper
+    steps={projects.length}
+    activeStep={activeStep}
+    onStepChange={handleStepChange}
+  />
+</Box>
 
       <Stack
         spacing={{ xs: 2, md: 4 }}

@@ -31,13 +31,11 @@ const Footer: React.FC = () => {
           gap: { xs: 2, md: 0 },
         }}
       >
-        {/* Star Section */}
         <Stack direction="row" spacing={1} alignItems="center">
           <FaStar style={{ color: "#facc15" }} className="animate-pulse" />
           <Typography fontWeight={600}>⭐ Give this project a star!</Typography>
         </Stack>
 
-        {/* Designed by */}
         <Typography
           variant="body2"
           textAlign="center"
@@ -61,7 +59,6 @@ const Footer: React.FC = () => {
           © {new Date().getFullYear()}
         </Typography>
 
-        {/* Message Section */}
         <Typography
           variant="body2"
           fontStyle="italic"

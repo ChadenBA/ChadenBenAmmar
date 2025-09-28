@@ -15,29 +15,20 @@ const SkillsSection: React.FC = () => {
   const displayedSkills = showAll ? skills : skills.slice(0, 6);
 
   return (
-    <section
-      className={`py-12 px-6 ${isDark ? "bg-gray-900 " : "bg-white"}`}
-    >
-      <h2
-        className={`text-3xl font-bold text-center mb-6 ${
-          isDark ? "text-[#8b5cf6]" : "text-[#8b5cf6]"
-        }`}
-      >
+    <section className={`py-12 px-4 sm:px-6 lg:px-12 ${isDark ? "bg-gray-900" : "bg-white"}`}>
+      <h2 className={`text-3xl sm:text-4xl font-bold text-center mb-6 ${isDark ? "text-[#8b5cf6]" : "text-[#8b5cf6]"}`}>
         Skills & Expertise
       </h2>
-      <p
-        className={`text-center mb-10 ${
-          isDark ? "text-gray-300" : "text-gray-600"
-        }`}
-      >
+      <p className={`text-center mb-10 text-sm sm:text-base ${isDark ? "text-gray-300" : "text-gray-600"}`}>
         A comprehensive overview of my technical skills across different domains
       </p>
 
-      <div className="flex justify-center gap-6 mb-10 flex-wrap">
+      {/* Domain buttons */}
+      <div className="flex flex-wrap justify-center gap-3 mb-10">
         {domains.map((domain) => (
           <button
             key={domain}
-            className={`px-4 py-2 rounded-xl transition-colors ${
+            className={`px-4 py-2 rounded-xl transition-colors text-sm sm:text-base ${
               activeDomain === domain
                 ? isDark
                   ? "bg-[#8b5cf6] text-white"
@@ -56,18 +47,21 @@ const SkillsSection: React.FC = () => {
         ))}
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      {/* Skill cards grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
         {displayedSkills.map((skill) => (
           <SkillCard key={skill.name} skill={skill} />
         ))}
       </div>
 
+      {/* Show More button */}
       {skills.length > 6 && !showAll && (
         <Box className="flex justify-center mt-8">
           <Button
             variant="contained"
             color="primary"
             onClick={() => setShowAll(true)}
+            size="small"
           >
             Show More Skills
           </Button>

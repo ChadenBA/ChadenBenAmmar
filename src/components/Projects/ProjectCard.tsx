@@ -33,7 +33,7 @@ const ProjectCard = ({
       <Typography variant="body2" color="gray" gutterBottom>
         {date}
       </Typography>
-      <Stack direction="row" spacing={1} flexWrap="wrap" mb={2}>
+      <Stack direction="row" mb={2} gap={1} flexWrap="wrap" >
         {tags.map((tag, idx) => (
           <ProjectTag key={idx} label={tag} />
         ))}

@@ -75,11 +75,11 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
           <Typography variant="subtitle2" mt={2} mb={1}>
             Skills:
           </Typography>
-          <Stack direction="row" spacing={1} flexWrap="wrap">
+          <Stack direction="row" gap={1} flexWrap="wrap">
             {skills.map((skill, index) => (
               <Chip
                 key={index}
-                label={skill}
+                label={skill} 
                 sx={{
                   backgroundColor: isDark ? "#0c1123" : "#f3f4f6",
                   color: isDark ? "#d1d5db" : "#111827",

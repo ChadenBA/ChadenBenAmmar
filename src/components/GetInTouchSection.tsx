@@ -131,25 +131,25 @@ const ContactSection: React.FC = () => {
     sx={{
       display: "flex",
       alignItems: "center",
-      gap: { xs: 0.5, sm: 1 },          // smaller gap on mobile
-      px: { xs: 1.5, sm: 3 },            // horizontal padding
-      py: { xs: 0.5, sm: 1.5 },          // vertical padding
+      gap: { xs: 0.5, sm: 1 },          
+      px: { xs: 1.5, sm: 3 },            
+      py: { xs: 0.5, sm: 1.5 },          
       borderRadius: 2,
       border: "1px solid",
       borderColor: isDark ? "#475569" : "#d1d5db",
       backgroundColor: isDark ? "#1e293b" : "#f9fafb",
       transition: "all 0.3s",
-      fontSize: { xs: "0.7rem", sm: "0.95rem" },  // smaller text on mobile
+      fontSize: { xs: "0.7rem", sm: "0.95rem" },  
       "&:hover": {
         backgroundColor: isDark ? "#2c3a50" : "#e5e7eb",
       },
-      whiteSpace: "nowrap",              // prevent wrapping
+      whiteSpace: "nowrap",              
     }}
   >
     {btn.icon}
     <Typography
       sx={{
-        display: { xs: "none", sm: "inline" }, // hide label on very small screens
+        display: { xs: "none", sm: "inline" }, 
       }}
     >
       {btn.label}
@@ -161,7 +161,6 @@ const ContactSection: React.FC = () => {
 
       </Box>
   
-      {/* Contact Form */}
       <Box sx={{ flex: 1, width: "100%" }}>
         <form
           onSubmit={handleSubmit}
@@ -199,7 +198,6 @@ const ContactSection: React.FC = () => {
             }}
           />
   
-          {/* Slider Verification */}
           <Box sx={{ mt: 2 }}>
             <Typography
               mb={1}
@@ -263,7 +261,7 @@ const ContactSection: React.FC = () => {
               mt: 2,
               backgroundColor: "#4f46e5",
               "&:hover": { backgroundColor: "#4338ca" },
-              width: "100%", // full width on mobile
+              width: "100%", 
               py: { xs: 1.5, md: 2 },
               fontSize: { xs: "0.85rem", md: "1rem" },
             }}

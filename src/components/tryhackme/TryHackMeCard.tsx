@@ -87,7 +87,7 @@ const TryHackMeCard: React.FC<THMStatsProps> = ({
           >
             <iframe
               src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=5104093"
-              style={{ border: "none", width: "400px", height: "120px", display: "block" }}
+              style={{ border: "none", width: "330px", height: "120px", display: "block" }}
               title="TryHackMe Badge"
             ></iframe>
           </Box>

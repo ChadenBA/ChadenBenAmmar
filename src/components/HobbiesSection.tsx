@@ -43,7 +43,6 @@ const HobbiesSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Values */}
         <div>
           <h3
             className={`text-xl font-semibold mb-4 ${
