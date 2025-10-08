@@ -38,7 +38,6 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
         {skill.description}
       </p>
 
-      {/* Level + Progress */}
       <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0">
         <span className="text-xs sm:text-sm">{skill.level}</span>
         <div className="w-16 h-16 sm:w-20 sm:h-20">

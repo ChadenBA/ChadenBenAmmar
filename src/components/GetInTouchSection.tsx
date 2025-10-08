@@ -30,14 +30,30 @@ const ContactSection: React.FC = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isVerified) return alert("Complete the slider challenge!");
-    console.log(formData);
-    alert("Message sent! 🎉 (mock)");
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setIsVerified(false);
+  
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        alert("Message sent! 🎉");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setIsVerified(false);
+      } else {
+        alert("Failed to send message.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Error sending message.");
+    }
   };
+  
 
   return (
     <Box
