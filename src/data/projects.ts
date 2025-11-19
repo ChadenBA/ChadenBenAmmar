@@ -2,8 +2,99 @@ import { Project } from '@/types/project';
 
 export const projects: Project[] = [
   {
+  title: 'Secure File Transfer System with Threat Detection',
+  date: 'Personal Project: 2025',
+  tags: [
+    'Cybersecurity',
+    'DevOps',
+    'File Transfer',
+    'ClamAV',
+    'YARA',
+    'Falco',
+    'Docker',
+    'Kubernetes',
+    'CI/CD',
+    'Grafana',
+    'Monitoring'
+  ],
+  purpose:
+    'To design a secure platform for file uploads/downloads that integrates runtime threat detection and full DevSecOps automation.',
+  description:
+    'A full-stack secure file transfer application allowing users to upload and download files with integrity verification and metadata management. The system integrates threat detection mechanisms using cryptographic hash checks, ClamAV and YARA placeholders, and runtime monitoring with Falco. Alerts and audit logs are visualized in Grafana dashboards. The deployment is fully automated using Docker Compose, Ansible, Kubernetes, and ArgoCD, while CI/CD pipelines enforce code quality and security through GitHub Actions, SonarCloud, Snyk, and Trivy.',
+  features: [
+    'Secure upload/download system with metadata tracking',
+    'Threat detection via hash verification and ClamAV/YARA scanning',
+    'Runtime intrusion detection using Falco + Grafana',
+    'Infrastructure automation using Docker Compose, Ansible, K8s, ArgoCD',
+    'CI/CD with GitHub Actions, code quality & security scans (SonarCloud, Snyk, Trivy)',
+    'Centralized logging and monitoring for security events'
+  ],
+  github: 'https://github.com/ChadenBA/SecureFileTransfer',
+  demo: ''
+},
+  {
+  title: 'DevSecOps Pipeline for Secure Web Biometric Authentication with Anti-Spoofing',
+  date: 'Research & Engineering Project: 2025',
+  tags: [
+    'DevSecOps',
+    'Biometric Authentication',
+    'Anti-Spoofing',
+    'CI/CD',
+    'AES-256',
+    'JWT',
+    'Facial Recognition',
+    'Cybersecurity',
+    'Emotion Detection'
+  ],
+  purpose:
+    'To design a secure web authentication system based on facial biometrics, enhanced with anti-spoofing, encryption, and automated DevSecOps pipelines.',
+  description:
+    'This project focuses on developing a full biometric authentication system for the web, integrating advanced facial recognition with anti-spoofing mechanisms (photo/video attack detection). User biometric templates are encrypted using AES-256, and session management is secured via JWT and HTTPS communication. The system also integrates emotion-state detection from facial expressions. A complete DevSecOps pipeline ensures code quality, automated testing, vulnerability scans, secure deployments, and continuous monitoring.',
+  features: [
+    'Secure web authentication using facial biometrics',
+    'Anti-spoofing (photo/video attack detection)',
+    'User emotion-state detection via facial analysis',
+    'AES-256 encryption for biometric data',
+    'Secure session management with JWT + HTTPS',
+    'Full CI/CD DevSecOps pipeline with automated tests & security scans',
+    'Monitoring and logging for system health and security events'
+  ],
+  github: 'https://github.com/ChadenBA/facekey',
+  demo: ''
+}
+,
+  {
+  title: 'Advanced Facial Recognition System (InsightFace & Fine-Tuning)',
+  date: 'Personal Project: November 2025',
+  tags: [
+    'Computer Vision',
+    'Deep Learning',
+    'InsightFace',
+    'ArcFace',
+    'FastAPI',
+    'Cosine Similarity',
+    'Machine Learning',
+    'Face Recognition'
+  ],
+  purpose:
+    'To build a robust and production-ready facial recognition system capable of handling real-world variations using fine-tuning and modern inference pipelines.',
+  description:
+    'This project implements a full facial recognition system based on InsightFace (ArcFace). It includes a fine-tuning module to improve robustness against lighting, pose, and occlusion variations. The backend is implemented with FastAPI to manage embeddings and inference, while a modern frontend handles user interactions. The recognition pipeline includes detection, alignment, embedding extraction, and similarity scoring. The final output returns “match”, “no match”, or “null” when no valid face is detected.',
+  features: [
+    'Facial detection, alignment, embedding, and recognition pipeline',
+    'Fine-tuning module improving model robustness to real-world conditions',
+    'FastAPI backend exposing inference APIs',
+    'Frontend interface for real-time recognition',
+    'Cosine similarity scoring for match vs no-match decision',
+    'Support for multiple faces and embedding storage'
+  ],
+  github: 'https://github.com/ChadenBA/Reconnaissance-Faciale ',
+  demo: ''
+}
+,
+  {
     title: "Social Engineering Game",
-    date: "Personal Project: September 2025",
+    date: "Personal Project: August 2025",
     tags: [
       "Cybersecurity",
       "Gamification",
