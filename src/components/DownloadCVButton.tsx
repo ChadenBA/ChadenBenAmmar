@@ -15,7 +15,7 @@ const DownloadCVButton: React.FC = () => {
       {open && (
         <div className="absolute mt-2 w-44 bg-gray-800 border border-gray-700 rounded-lg shadow-lg z-10">
           <a
-            href="/cv/CV_Chaden_ben_ammar_eng_devops.pdf"
+            href="/cv/Chaden_Ben_Ammar_CV_DevOps.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="block px-4 py-2 text-white hover:bg-blue-600 transition"
